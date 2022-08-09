@@ -1,6 +1,7 @@
+// Import
 const router = require('express').Router();
 
-// What other model is linked with Item?
+// Model Imports
 const {  } = require('../../models');
 
 
