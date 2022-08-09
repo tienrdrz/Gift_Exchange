@@ -7,17 +7,22 @@ const { User } = require('../../models');
 //GET all users (maybe but included for now)
 router.get('/', (req, res) => {
     User.findAll()
+    /*attributes: { exclude: ['password'] }, 
+      where: {
+        id: req.params.id
+      }
+    */
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     })
-    // res.render('login');
 });
 
 //GET individual user
 router.get('/:id', (req, res) => {
     User.findOne({
+        //attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         }
@@ -35,6 +40,8 @@ router.get('/:id', (req, res) => {
     })
 });
 
+//PUT to update user info(not necessary but ready to be added)
+
 //POST a new user
 router.post('/', (req, res) => {
     //expects: first_name, last_name, password
@@ -50,6 +57,26 @@ router.post('/', (req, res) => {
     })
 });
 
+//DELETE to delete your account
+router.delete('/:id', (req, res) => {
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'The user you are trying to delete does not exist'});
+            return;
+        }
+        res.json(dbUserData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
+
 //POST to login to account
 router.post('/login', (req, res) => {
 
@@ -59,11 +86,7 @@ router.post('/login', (req, res) => {
 router.post('/', (req, res) => {
 
 });
-
-//DELETE to delete your account
-router.delete('/', (req, res) => {
-
-});
-
 // Export
 module.exports = router;
+
+//FOR HOMEPAGE, maybe add marquee?
