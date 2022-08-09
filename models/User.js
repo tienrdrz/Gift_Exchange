@@ -8,7 +8,31 @@ class User extends Model {};
 User.init(
     // Columns
     {
+    // each user gets a personal id 
+     id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+     },
 
+     first_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+
+    last_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+
+     password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            len: [5,20]
+        }
+     }  
     },
     // Model Properties
     {
