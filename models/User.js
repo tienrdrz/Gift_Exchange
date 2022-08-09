@@ -15,7 +15,7 @@ User.init(
         primaryKey: true,
         autoIncrement: true
      },
-
+    // paramaters to create an account
      first_name: {
         type: DataTypes.STRING,
         allowNull: false
