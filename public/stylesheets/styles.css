@@ -70,6 +70,17 @@ a {
 	opacity: 0.8;
 }
 
+#backgroundImg {
+	background-image: url(/public/images/blurrLights.jpeg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-attachment: fixed;
+	background-position: 80%;
+}
 .hero-cta {
 	width: 35%;
 	text-align: center;
@@ -225,6 +236,12 @@ div h3 :hover {
 	align-items: flex-start;
 	background-attachment: fixed;
 	background-position: 80%;
+}
+
+#wishlistBox {
+	max-width: 500px;
+	max-height: 500px;
+	margin-left: 450px;
 }
 
 /*EXCHANGE PAGE*/
