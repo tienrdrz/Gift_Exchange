@@ -8,7 +8,7 @@ class User extends Model {};
 User.init(
     // Columns
     {
-
+       
     },
     // Model Properties
     {

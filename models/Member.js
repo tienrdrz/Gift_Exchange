@@ -16,6 +16,7 @@ Member.init(
         exchange_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            unique: false,
             references: {
               model: 'exchange',
               key: 'id'
@@ -32,7 +33,7 @@ Member.init(
         list_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'list',
+                model: 'wishlist',
                 key: 'id'
             }
         },
