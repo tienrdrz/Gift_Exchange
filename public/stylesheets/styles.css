@@ -1,36 +1,49 @@
-.header {
-	/* Stick to the top */
-	position: sticky;
-	top: 0;
+:root {
+	--primary-color: #606060;
+	--secondary-color: #d7f2ec;
+	--teritary-color: rgb(1, 0, 1);
 }
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Playfair Display", serif;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 }
 
-.container__header,
-.container__footer {
-	flex-shrink: 0;
-}
-
-.container__main {
-	flex-grow: 1;
-}
-
 h1 {
+	text-align: end;
+	width: auto;
+}
+
+.titleName {
 	text-align: center;
 }
 
 .login {
-	flex: wrap;
+	font-size: medium;
 	text-align: right;
 }
 
 .navbar {
-	background-color: #d7f2ec;
+	background-color: var(--secondary-color);
 	padding: 1.2rem 7rem;
 	text-align: center;
+	/* Stick to the top 
+	position: sticky;
+	top: 0;*/
+}
+
+.navbar :hover {
+	color: var(--teritary-color);
+	opacity: 1;
+	cursor: pointer;
 }
 
 a {
@@ -46,34 +59,30 @@ a {
 	text-align: center;
 	color: #606060;
 	font-weight: 500;
-	font-family: Roboto, Arial, Helvetica, sans-serif;
 	font-size: 1.2rem;
 	line-height: 1.4rem;
 	padding: 0.1rem 2rem;
 	opacity: 0.8;
 }
 
-.navbar :hover {
-	color: rgb(1, 0, 1);
-	opacity: 1;
-	cursor: pointer;
-}
-
 .hero-cta {
 	width: 35%;
 	text-align: center;
 	margin: 3.5%;
-	color: rgb(15, 15, 15);
+	color: var(--teritary-color);
 	font-size: 18px;
 	line-height: 1.2;
 	margin-right: 10px;
 }
 
 .blackGift img {
-	height: 500px;
-	width: 45%;
+	height: 400px;
+	width: 60%;
 	display: flex;
 	float: right;
+	margin-right: 200px;
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .paragraph {
@@ -87,7 +96,7 @@ a {
 }
 
 footer {
-	background-color: #d7f2ec;
+	background-color: var(--secondary-color);
 	padding: 1.2rem 7rem;
 	text-align: center;
 	color: #606060;
@@ -99,7 +108,7 @@ footer {
 }
 
 footer :hover {
-	color: rgb(1, 0, 1);
+	color: var(--teritary-color);
 	opacity: 1;
 	cursor: pointer;
 }
