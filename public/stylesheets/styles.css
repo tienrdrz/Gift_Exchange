@@ -239,3 +239,9 @@ div h3 :hover {
 	background-attachment: fixed;
 	background-position: 80%;
 }
+
+#exchangeBox {
+	max-width: 500px;
+	max-height: 500px;
+	margin-left: 400px;
+}
