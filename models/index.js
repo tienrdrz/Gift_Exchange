@@ -2,6 +2,8 @@
 const User = require('./User');
 const Wishlist = require('./Wishlist');
 const Item = require('./Item');
+const Exchange = require('./Exchange');
+const Member = require('./Exchange');
 
 // User and Wishlist associations ///////////////
 // User has many Wishlists
