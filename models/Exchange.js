@@ -4,10 +4,16 @@ const sequelize = require('../config/connection.js');
 // Wishlist Model
 class Exchange extends Model {
     static addMember(body, models) {
+        return models.Member.create({
+            exchange_id: body.exchange_id,
+            user_id: body.user_id,
+        });
     };
 
     static delMember(body, models) {
-
+        return models.Member.destroy({
+            
+        })
     };
 };
 
@@ -23,11 +29,12 @@ Exchange.init(
         },
         owner: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
               model: 'user',
               key: 'id'
             }
-        }        
+        } 
     },
     // Model Properties
     {
@@ -35,7 +42,7 @@ Exchange.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'wishlist'
+        modelName: 'exchange'
     }
 );
 

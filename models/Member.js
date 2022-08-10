@@ -1,14 +1,48 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
-// User Model
+// Member Model
 class Member extends Model {};
 
-// User Model Initializer
+// Member Model Initializer
 Member.init(
     // Columns
     {
-
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        exchange_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+              model: 'exchange',
+              key: 'id'
+            }
+        },
+        member_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+              model: 'user',
+              key: 'id'
+            }
+        },
+        list_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'list',
+                key: 'id'
+            }
+        },
+        gifting_to: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'user',
+              key: 'id'
+            }
+        }
     },
     // Model Properties
     {
@@ -16,7 +50,7 @@ Member.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user'
+        modelName: 'member'
     }
 );
 
