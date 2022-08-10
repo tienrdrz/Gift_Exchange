@@ -20,30 +20,34 @@
 h1 {
 	text-align: end;
 	width: auto;
-}
-
-.titleName {
-	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .login {
 	font-size: medium;
 	text-align: right;
+	margin-top: 25px;
+}
+
+.signup {
+	font-size: medium;
+	text-align: left;
+	margin-top: 25px;
 }
 
 .navbar {
 	background-color: var(--secondary-color);
 	padding: 1.2rem 7rem;
 	text-align: center;
-	/* Stick to the top 
+	/* Stick to the top */
 	position: sticky;
-	top: 0;*/
+	top: 0;
 }
 
 .navbar :hover {
 	color: var(--teritary-color);
 	opacity: 1;
-	cursor: pointer;
 }
 
 a {
@@ -75,6 +79,10 @@ a {
 	margin-right: 10px;
 }
 
+.intro {
+	margin-top: 15px;
+}
+
 .blackGift img {
 	height: 400px;
 	width: 60%;
@@ -88,7 +96,17 @@ a {
 .paragraph {
 	margin: 1rem;
 	padding: 2rem 2rem;
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
+	opacity: 0.8;
+	color: #010101;
 }
+
+.btn {
+	box-shadow: 0 0 5px rgba(1, 1, 1, 0.614);
+}
+
 .blackGift {
 	display: inline-block;
 	padding: 1rem 1rem;
@@ -98,17 +116,31 @@ a {
 footer {
 	background-color: var(--secondary-color);
 	padding: 1.2rem 7rem;
-	text-align: center;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
 	color: #606060;
-	font-weight: 500;
-	font-family: Roboto, Arial, Helvetica, sans-serif;
-	font-size: 1.2rem;
-	line-height: 1.4rem;
-	padding: 0.1rem 2rem;
+	font-size: 1rem;
+	padding: 1.2rem 7rem;
+	width: 100%;
 }
 
 footer :hover {
 	color: var(--teritary-color);
 	opacity: 1;
 	cursor: pointer;
+}
+
+/* SIGN UP PAGE*/
+
+.signupBox {
+	margin: 1rem;
+	padding: 2rem 2rem;
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
+	opacity: 0.8;
+	color: #010101;
+	max-width: 600px;
+	max-height: 400px;
 }
