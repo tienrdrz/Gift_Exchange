@@ -58,3 +58,48 @@ a {
 	opacity: 1;
 	cursor: pointer;
 }
+
+.hero-cta {
+	width: 35%;
+	text-align: center;
+	margin: 3.5%;
+	color: rgb(15, 15, 15);
+	font-size: 18px;
+	line-height: 1.2;
+	margin-right: 10px;
+}
+
+.blackGift img {
+	height: 500px;
+	width: 45%;
+	display: flex;
+	float: right;
+}
+
+.paragraph {
+	margin: 1rem;
+	padding: 2rem 2rem;
+}
+.blackGift {
+	display: inline-block;
+	padding: 1rem 1rem;
+	vertical-align: middle;
+}
+
+footer {
+	background-color: #d7f2ec;
+	padding: 1.2rem 7rem;
+	text-align: center;
+	color: #606060;
+	font-weight: 500;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 1.2rem;
+	line-height: 1.4rem;
+	padding: 0.1rem 2rem;
+}
+
+footer :hover {
+	color: rgb(1, 0, 1);
+	opacity: 1;
+	cursor: pointer;
+}
