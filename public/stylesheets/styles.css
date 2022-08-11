@@ -42,13 +42,9 @@ h1 {
 	padding: 1.2rem 7rem;
 	text-align: center;
 	/* Stick to the top */
+	z-index: 2;
 	position: sticky;
 	top: 0;
-}
-
-.navbar :hover {
-	color: var(--teritary-color);
-	opacity: 1;
 }
 
 a {
@@ -68,6 +64,11 @@ a {
 	line-height: 1.4rem;
 	padding: 0.1rem 2rem;
 	opacity: 0.8;
+}
+
+.nav:hover {
+	opacity: 1;
+	color: var(--teritary-color);
 }
 
 #backgroundImg {
@@ -134,17 +135,17 @@ footer {
 	color: #606060;
 	font-size: 1rem;
 	padding: 1.2rem 7rem;
+	opacity: 0.8;
 	width: 100%;
 }
 
-footer :hover {
+footer:hover {
 	color: var(--teritary-color);
 	opacity: 1;
 	cursor: pointer;
 }
 
 /* SIGN UP PAGE*/
-
 .signupBox {
 	margin: 1rem;
 	padding: 2rem 2rem;
@@ -192,11 +193,11 @@ footer :hover {
 	color: #010101;
 	max-width: 600px;
 	max-height: 400px;
-	/* z-index: 1; */
 }
 
-div h3 :hover {
+h3:hover {
 	cursor: pointer;
+	color: var(--primary-color);
 }
 
 #DashImg1,
@@ -204,15 +205,35 @@ div h3 :hover {
 	max-width: 500px;
 	max-height: 300px;
 	border-radius: 15px;
-	/* z-index: 2; */
 }
 
-#btnD {
-	/* z-index: 3; */
-	margin-bottom: 20px;
+.clickable {
+	filter: brightness(100%);
+}
+
+.clickable:hover {
+	filter: brightness(75%);
+	cursor: pointer;
+}
+
+.textColour:hover {
+	color: var(--primary-color);
 }
 
 /*LOGIN PAGE*/
+
+.loginBox {
+	margin: 1rem;
+	padding: 2rem 2rem;
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
+	opacity: 0.8;
+	color: #010101;
+	max-width: 600px;
+	max-height: 400px;
+}
+
 #loginImage {
 	background-image: url(/public/images/browngift.jpeg);
 	background-size: cover;
@@ -223,15 +244,6 @@ div h3 :hover {
 	align-items: flex-start;
 	background-attachment: fixed;
 	background-position: 80%;
-}
-
-.clickable {
-	filter: brightness(100%);
-}
-
-.clickable:hover {
-	filter: brightness(75%);
-	cursor: pointer;
 }
 
 /*WISH LIST PAGE*/
