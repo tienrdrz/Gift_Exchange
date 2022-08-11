@@ -31,6 +31,13 @@ h1 {
 	margin-top: 25px;
 }
 
+.logout {
+	font-size: medium;
+	text-align: end;
+	margin-top: 25px;
+	margin-left: 90px;
+}
+
 .signup {
 	font-size: medium;
 	text-align: left;
@@ -282,4 +289,30 @@ h3:hover {
 	max-width: 500px;
 	max-height: 500px;
 	margin-left: 400px;
+}
+
+/*CONTACT PAGE*/
+#contactUs {
+	background-image: url(/public/images/lightconfetti.jpeg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-attachment: fixed;
+	background-position: 80%;
+}
+
+/*ABOUT US PAGE*/
+#aboutUs {
+	background-image: url(/public/images/glitterImg.jpeg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-attachment: fixed;
+	background-position: 80%;
 }
