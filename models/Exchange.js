@@ -27,7 +27,7 @@ Exchange.init(
             primaryKey: true,
             autoIncrement: true
         },
-        owner: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {

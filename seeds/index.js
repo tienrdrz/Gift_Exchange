@@ -1,7 +1,7 @@
 const seedUser = require('./user-seeds');
 const seedWishlist = require('./wishlist-seeds');
 const seedExchange = require('./exchange-seeds');
-const seedMembers = require('./member-seeds');
+const seedExchangeMembers = require('./exchangeMember-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -11,7 +11,7 @@ const seedAll = async () => {
     await seedUser();
     await seedWishlist();
     await seedExchange();
-    await seedMembers();
+    await seedExchangeMembers();
 }
 
 seedAll();

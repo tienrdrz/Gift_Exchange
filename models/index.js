@@ -20,11 +20,14 @@ Wishlist.hasMany(Item, { foreignKey: 'list_id' });
 Item.belongsTo(Wishlist, { foreignKey: 'list_id' });
 
 // Exchange and User associations ////////////////////////////////////////
+ExchangeMember.belongsTo(Exchange, { foreignKey: 'exchange_id' });
+Exchange.hasMany(ExchangeMember, { foreignKey: 'exchange_id' });
+
 Exchange.belongsToMany(User, { through: ExchangeMember, foreignKey: 'exchange_id'});
-Exchange.belongsToMany(Wishlist, { through: ExchangeMember, foreignKey: 'exchange_id' })
+// Exchange.belongsToMany(Wishlist, { through: ExchangeMember, foreignKey: 'exchange_id' })
 
 Wishlist.belongsToMany(User, { through: ExchangeMember, foreignKey: 'list_id' });
-Wishlist.belongsToMany(Exchange, { through: ExchangeMember, foreignKey: 'list_id' });
+// Wishlist.belongsToMany(Exchange, { through: ExchangeMember, foreignKey: 'list_id' });
 
 User.belongsToMany(Exchange, { through: ExchangeMember, foreignKey: 'member_id' });
 User.belongsToMany(Wishlist, { through: ExchangeMember, foreignKey: 'gifting_to_id' });
