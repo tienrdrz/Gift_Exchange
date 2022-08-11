@@ -1,7 +1,10 @@
 // Importing models
-const User = require('./User');
-const Wishlist = require('./Wishlist');
-const Item = require('./Item');
+// const User = require('./User');
+// const Wishlist = require('./Wishlist');
+// const Item = require('./Item');
+import User from './User.js';
+import Wishlist from './Wishlist.js';
+import Item from './Item.js';
 
 // User and Wishlist associations ///////////////
 // User has many Wishlists
@@ -25,4 +28,4 @@ Item.belongsTo(Wishlist, {
 
 
 // Exports
-module.exports = { User, Wishlist, Item };
+export { User, Wishlist, Item };

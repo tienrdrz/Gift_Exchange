@@ -1,8 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection.js');
+// const { Model, DataTypes } = require('sequelize');
+// const sequelize = require('../config/connection.js');
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../config/connection.js';
 
 // Wishlist Model
-class Wishlist extends Model {};
+export default class Wishlist extends Model {};
 
 // Wishlist Model Initializer
 Wishlist.init(
@@ -21,4 +23,4 @@ Wishlist.init(
 );
 
 // Export
-module.exports = Wishlist;
+// module.exports = Wishlist;

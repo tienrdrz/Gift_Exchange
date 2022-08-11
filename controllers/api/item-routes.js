@@ -1,8 +1,11 @@
 // Import
-const router = require('express').Router();
+// const router = require('express').Router();
+import express from 'express';
+const router = express.Router();
 
 // Model Imports
-const { Item } = require('../../models');
+// const { Item } = require('../../models');
+import { Item } from '../../models/index.js';
 
 router.get('/', (req, res) => {
 
@@ -57,5 +60,7 @@ router.delete('/:id', (req, res) => {
 });
 
 
+
 // Export
-module.exports = router;
+// module.exports = router;
+export default router;

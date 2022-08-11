@@ -1,8 +1,11 @@
 // Imports
-const router = require('express').Router();
+// const router = require('express').Router();
+import express from 'express';
+const router = express.Router();
 
 // Model Imports
-const { User } = require('../../models');
+// const { User } = require('../../models');
+import { User } from '../../models/index.js';
 
 //GET all users (maybe but included for now)
 router.get('/', (req, res) => {
@@ -87,4 +90,5 @@ router.post('/', (req, res) => {
 });
 
 // Export
-module.exports = router;
+// module.exports = router;
+export default router;
