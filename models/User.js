@@ -9,30 +9,21 @@ User.init(
     // Columns
     {
     // each user gets a personal id 
-     id: {
+    id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
      },
-    // paramaters to create an account
-     first_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
 
-    last_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-
-    email: {
+     username: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
-            isEmail: true
+            len: [5],
         }
-     },  
+    },
 
      password: {
         type: DataTypes.STRING,
