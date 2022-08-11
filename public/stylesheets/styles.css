@@ -1,0 +1,273 @@
+:root {
+	--primary-color: #606060;
+	--secondary-color: #d7f2ec;
+	--teritary-color: rgb(1, 0, 1);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Playfair Display", serif;
+}
+
+/*HOME PAGE*/
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+h1 {
+	text-align: end;
+	width: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.login {
+	font-size: medium;
+	text-align: right;
+	margin-top: 25px;
+}
+
+.signup {
+	font-size: medium;
+	text-align: left;
+	margin-top: 25px;
+}
+
+.navbar {
+	background-color: var(--secondary-color);
+	padding: 1.2rem 7rem;
+	text-align: center;
+	/* Stick to the top */
+	position: sticky;
+	top: 0;
+}
+
+.navbar :hover {
+	color: var(--teritary-color);
+	opacity: 1;
+}
+
+a {
+	border-color: transparent;
+	box-sizing: border-box;
+	color: inherit;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.nav {
+	text-align: center;
+	color: #606060;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.4rem;
+	padding: 0.1rem 2rem;
+	opacity: 0.8;
+}
+
+#backgroundImg {
+	background-image: url(/public/images/blurrLights.jpeg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-attachment: fixed;
+	background-position: 80%;
+}
+.hero-cta {
+	width: 35%;
+	text-align: center;
+	margin: 3.5%;
+	color: var(--teritary-color);
+	font-size: 18px;
+	line-height: 1.2;
+	margin-right: 10px;
+}
+
+.intro {
+	margin-top: 15px;
+}
+
+.blackGift img {
+	height: 400px;
+	width: 60%;
+	display: flex;
+	float: right;
+	margin-right: 200px;
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.paragraph {
+	margin: 1rem;
+	padding: 2rem 2rem;
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
+	opacity: 0.8;
+	color: #010101;
+}
+
+.btn {
+	box-shadow: 0 0 5px rgba(1, 1, 1, 0.614);
+}
+
+.blackGift {
+	display: inline-block;
+	padding: 1rem 1rem;
+	vertical-align: middle;
+}
+
+footer {
+	background-color: var(--secondary-color);
+	padding: 1.2rem 7rem;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	color: #606060;
+	font-size: 1rem;
+	padding: 1.2rem 7rem;
+	width: 100%;
+}
+
+footer :hover {
+	color: var(--teritary-color);
+	opacity: 1;
+	cursor: pointer;
+}
+
+/* SIGN UP PAGE*/
+
+.signupBox {
+	margin: 1rem;
+	padding: 2rem 2rem;
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
+	opacity: 0.8;
+	color: #010101;
+	max-width: 600px;
+	max-height: 400px;
+}
+
+#signupBackground {
+	background-image: url(/public/images/pinkbowlace.jpeg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-attachment: fixed;
+	background-position: 80%;
+}
+
+/*DASHBOARD PAGE*/
+#dashboard_options {
+	background-image: url(/public/images/pinkgift.jpeg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-attachment: fixed;
+	background-position: 80%;
+}
+
+.exchanges_box,
+.wishlist_box {
+	margin: 1rem;
+	padding: 2rem 2rem;
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
+	color: #010101;
+	max-width: 600px;
+	max-height: 400px;
+	/* z-index: 1; */
+}
+
+div h3 :hover {
+	cursor: pointer;
+}
+
+#DashImg1,
+#DashImg2 {
+	max-width: 500px;
+	max-height: 300px;
+	border-radius: 15px;
+	/* z-index: 2; */
+}
+
+#btnD {
+	/* z-index: 3; */
+	margin-bottom: 20px;
+}
+
+/*LOGIN PAGE*/
+#loginImage {
+	background-image: url(/public/images/browngift.jpeg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-attachment: fixed;
+	background-position: 80%;
+}
+
+.clickable {
+	filter: brightness(100%);
+}
+
+.clickable:hover {
+	filter: brightness(75%);
+	cursor: pointer;
+}
+
+/*WISH LIST PAGE*/
+#wishlistImage {
+	background-image: url(/public/images/wishlistimg.jpeg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-attachment: fixed;
+	background-position: 80%;
+}
+
+#wishlistBox {
+	max-width: 500px;
+	max-height: 500px;
+	margin-left: 450px;
+}
+
+/*EXCHANGE PAGE*/
+#exchangeImage {
+	background-image: url(/public/images/giftExchange.jpeg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-attachment: fixed;
+	background-position: 80%;
+}
+
+#exchangeBox {
+	max-width: 500px;
+	max-height: 500px;
+	margin-left: 400px;
+}
