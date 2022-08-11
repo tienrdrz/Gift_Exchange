@@ -20,8 +20,8 @@ router.post('/', (req, res) => {
     Item.create({
 
         item_text: req.body.item_text,
-        user_id: req.session.user_id,
-        post_id: req.body.post_id
+        // user_id: req.session.user_id,
+        list_id: req.body.list_id
 
     })
 
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
 
 
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
 
     Item.destroy({
         where: {
