@@ -8,7 +8,7 @@ const { Wishlist } = require('../../models');
 router.get('/', (req, res) => {
     //Access our Wishlist model and run .findAll() method
     Wishlist.findAll()
-    .then(dbWishlistData => res.json(dbWishlistData))
+    .then(dbWishlistData => res.text(dbWishlistData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
