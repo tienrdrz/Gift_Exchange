@@ -44,10 +44,9 @@ router.get('/:id', (req, res) => {
 
 //POST a new user
 router.post('/', (req, res) => {
-    //expects: first_name, last_name, password
+    //expects: username, password
     User.create({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
+        username: req.body.username,
         password: req.body.password
     })
     .then(dbUserData => res.json(dbUserData))

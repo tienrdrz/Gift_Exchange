@@ -16,14 +16,13 @@ User.init(
         autoIncrement: true
      },
 
-     first_name: {
+     username: {
         type: DataTypes.STRING,
-        allowNull: false
-    },
-
-    last_name: {
-        type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true,
+        validate: {
+            len: [5],
+        }
     },
 
      password: {
