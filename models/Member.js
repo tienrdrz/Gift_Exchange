@@ -13,37 +13,40 @@ Member.init(
             primaryKey: true,
             autoIncrement: true
         },
-        exchange_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            unique: false,
-            references: {
-              model: 'exchange',
-              key: 'id'
-            }
-        },
-        member_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-              model: 'user',
-              key: 'id'
-            }
-        },
-        list_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'wishlist',
-                key: 'id'
-            }
-        },
         gifting_to: {
-            type: DataTypes.INTEGER,
-            references: {
-              model: 'user',
-              key: 'id'
-            }
+            unique: false
         }
+        // exchange_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     unique: false,
+        //     references: {
+        //       model: 'exchange',
+        //       key: 'id'
+        //     }
+        // },
+        // member_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //       model: 'user',
+        //       key: 'id'
+        //     }
+        // },
+        // list_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'wishlist',
+        //         key: 'id'
+        //     }
+        // },
+        // gifting_to: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //       model: 'user',
+        //       key: 'id'
+        //     }
+        // }
     },
     // Model Properties
     {
