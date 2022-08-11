@@ -3,8 +3,9 @@ const User = require('./User');
 const Wishlist = require('./Wishlist');
 const Item = require('./Item');
 const Exchange = require('./Exchange');
-const Member = require('./Member');
+const ExchangeMember = require('./ExchangeMember');
 const e = require('express');
+const { use } = require('../controllers/api');
 
 // User and Wishlist associations ////////////////////////////////////////
 // User has many Wishlists
@@ -19,8 +20,15 @@ Wishlist.hasMany(Item, { foreignKey: 'list_id' });
 Item.belongsTo(Wishlist, { foreignKey: 'list_id' });
 
 // Exchange and User associations ////////////////////////////////////////
-Exchange.belongsToMany(User, { through: Member, foreignKey: 'exchange_id' });
-User.belongsToMany(Exchange, { through: Member, foreignKey: 'member_id' });
+Exchange.belongsToMany(User, { through: ExchangeMember, foreignKey: 'exchange_id'});
+Exchange.belongsToMany(Wishlist, { through: ExchangeMember, foreignKey: 'exchange_id' })
+
+Wishlist.belongsToMany(User, { through: ExchangeMember, foreignKey: 'list_id' });
+Wishlist.belongsToMany(Exchange, { through: ExchangeMember, foreignKey: 'list_id' });
+
+User.belongsToMany(Exchange, { through: ExchangeMember, foreignKey: 'member_id' });
+User.belongsToMany(Wishlist, { through: ExchangeMember, foreignKey: 'gifting_to_id' });
+
 
 // Exports
-module.exports = { User, Wishlist, Item, Exchange, Member };
+module.exports = { User, Wishlist, Item, Exchange, ExchangeMember };

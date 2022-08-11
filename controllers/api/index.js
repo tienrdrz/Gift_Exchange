@@ -5,11 +5,13 @@ const router = require('express').Router();
 const userRoutes = require('./user-routes.js');
 const wishlistRoutes = require('./wishlist-routes');
 const itemRoutes = require('./item-routes');
+const exchangeRoutes = require('./exhange-routes');
 
 // Routing links
 router.use('/users', userRoutes);
 router.use('/wishlists', wishlistRoutes);
 router.use('/items', itemRoutes);
+router.use('/exchange', exchangeRoutes);
 
 // Export
 module.exports = router;

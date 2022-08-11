@@ -2,10 +2,10 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
 // Member Model
-class Member extends Model {};
+class ExchangeMember extends Model {};
 
 // Member Model Initializer
-Member.init(
+ExchangeMember.init(
     // Columns
     {
         id: {
@@ -37,7 +37,7 @@ Member.init(
                 key: 'id'
             }
         },
-        gifting_to: {
+        gifting_to_id: {
             type: DataTypes.INTEGER,
             references: {
               model: 'user',
@@ -51,9 +51,9 @@ Member.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'member'
+        modelName: 'exchange_member'
     }
 );
 
 // Export
-module.exports = Member;
+module.exports = ExchangeMember;
