@@ -1,4 +1,4 @@
-const { Member } = require('../models');
+const { ExchangeMember } = require('../models');
 
 const memberData = [
     // Group 1
@@ -10,6 +10,6 @@ const memberData = [
     { member_id: 3, exchange_id: 2, list_id: 3, gifting_to: 1 }
 ]
 
-const seedMembers = () => Member.bulkCreate(memberData);
+const seedMembers = () => ExchangeMember.bulkCreate(memberData);
 
 module.exports = seedMembers;
