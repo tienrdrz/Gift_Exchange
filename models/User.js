@@ -9,7 +9,7 @@ User.init(
     // Columns
     {
     // each user gets a personal id 
-     id: {
+    id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
