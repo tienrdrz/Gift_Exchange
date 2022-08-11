@@ -22,12 +22,11 @@ Item.belongsTo(Wishlist, { foreignKey: 'list_id' });
 // Exchange and User associations ////////////////////////////////////////
 Exchange.belongsToMany(User, { through: Member, foreignKey: 'exchange_id'});
 
-User.belongsToMany(Wishlist, { through: Member, foreignKey: 'gifting_to' });;
 Wishlist.belongsToMany(User, { through: Member, foreignKey: 'list_id' });
-
 Wishlist.belongsToMany(Exchange, { through: Member, foreignKey: 'list_id' });
 
 User.belongsToMany(Exchange, { through: Member, foreignKey: 'member_id' });
+User.belongsToMany(Wishlist, { through: Member, foreignKey: 'gifting_to_id'});
 
 
 // Exports

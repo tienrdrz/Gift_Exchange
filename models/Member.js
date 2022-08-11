@@ -12,9 +12,6 @@ Member.init(
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        gifting_to: {
-            unique: false
         }
         // exchange_id: {
         //     type: DataTypes.INTEGER,
