@@ -269,7 +269,16 @@ h3:hover {
 #wishlistBox {
 	max-width: 500px;
 	max-height: 500px;
-	margin-left: 450px;
+	padding: 2rem 2rem;
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
+	opacity: 0.8;
+	color: #010101;
+	margin: 0 auto; /*Added*/
+	float: none; /* Added */
+	margin-bottom: 10px; /* Added */
+	margin-top: 10px;
 }
 
 /*EXCHANGE PAGE*/
@@ -288,7 +297,16 @@ h3:hover {
 #exchangeBox {
 	max-width: 500px;
 	max-height: 500px;
-	margin-left: 400px;
+	margin-top: 10px;
+	padding: 2rem 2rem;
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
+	opacity: 0.8;
+	color: #010101;
+	margin: 0 auto; /*Added*/
+	float: none; /* Added */
+	margin-bottom: 10px; /* Added */
 }
 
 /*CONTACT PAGE*/
