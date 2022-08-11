@@ -225,6 +225,15 @@ div h3 :hover {
 	background-position: 80%;
 }
 
+.clickable {
+	filter: brightness(100%);
+}
+
+.clickable:hover {
+	filter: brightness(75%);
+	cursor: pointer;
+}
+
 /*WISH LIST PAGE*/
 #wishlistImage {
 	background-image: url(/public/images/wishlistimg.jpeg);
