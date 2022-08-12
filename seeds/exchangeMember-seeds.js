@@ -1,15 +1,16 @@
 const { ExchangeMember } = require('../models');
 
-const memberData = [
+const memberExchangeData = [
     // Group 1
     { member_id: 1, exchange_id: 1, list_id: 1, gifting_to: 2 },
     { member_id: 2, exchange_id: 1, list_id: 2, gifting_to: 3 },
     { member_id: 3, exchange_id: 1, list_id: 3, gifting_to: 1 },
     // Group 2
     { member_id: 1, exchange_id: 2, list_id: 1, gifting_to: 3 },
-    { member_id: 3, exchange_id: 2, list_id: 3, gifting_to: 1 }
+    { member_id: 2, exchange_id: 2, list_id: 2, gifting_to: 1 },
+    { member_id: 3, exchange_id: 2, list_id: 3, gifting_to: 2 }
 ]
 
-const seedMembers = () => ExchangeMember.bulkCreate(memberData);
+const seedExchangeMembers = () => ExchangeMember.bulkCreate(memberExchangeData);
 
-module.exports = seedMembers;
+module.exports = seedExchangeMembers;

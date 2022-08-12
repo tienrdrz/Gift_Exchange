@@ -1,20 +1,33 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
+const ExchangeMember = require('./ExchangeMember.js');
 
 // Wishlist Model
 class Exchange extends Model {
-    static addMember(body, models) {
-        return models.Member.create({
-            exchange_id: body.exchange_id,
-            user_id: body.user_id,
+    static addMember(req) {
+        // Adds a member given their id
+        return ExchangeMember.create({
+            exchange_id: req.params.id,
+            member_id: req.body.user_id,
         });
     };
 
-    static delMember(body, models) {
-        return models.Member.destroy({
-            
-        })
+    // Deletes member given their id
+    static delMember(req) {
+        return ExchangeMember.destroy({
+            where: {
+                exchange_id: req.params.id,
+                member_id: req.body.user_id
+            }
+        });         
     };
+
+    // Updates a member's wishlist given their wishlist_id they want to update to
+    static updateList(req) {
+        return Exchange.update({
+
+        });
+    }
 };
 
 // Wishlist Model Initializer
@@ -27,7 +40,11 @@ Exchange.init(
             primaryKey: true,
             autoIncrement: true
         },
-        owner: {
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        host_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {

@@ -1,9 +1,9 @@
 const { Exchange } = require('../models');
 
 const exchangeData = [
-    { owner: 1 },
-    { owner: 1 },
-    { owner: 2 }
+    { title: 'Exchange 1', host_id: 1 },
+    { title: 'Exchange 2', host_id: 1 },
+    { title: 'Exchange 3', host_id: 2 }
 ];
 
 const seedExchange = () => Exchange.bulkCreate(exchangeData);
