@@ -112,6 +112,8 @@ router.put('/:id/del-member', (req, res) => {
 // Updates the wishlist displayed in the current exchange
 router.put('/:id/update', (req, res) => {
     Exchange.updateList(req)
+        .then(exchangeData => res.json(exchangeData))
+        .catch(e => { console.log(e); res.status(500).json(e) });
 })
 
 // Export
