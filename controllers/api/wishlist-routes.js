@@ -8,7 +8,7 @@ const { Wishlist } = require('../../models');
 router.get('/', (req, res) => {
     //Access our Wishlist model and run .findAll() method
     Wishlist.findAll()
-    .then(dbWishlistData => res.text(dbWishlistData))
+    .then(dbWishlistData => res.json(dbWishlistData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -38,7 +38,8 @@ router.get('/:id', (req, res) => {
 // POST /api/wishlist
 router.post('/', (req, res) => {
     Wishlist.create({
-        title: req.body.title
+        title: req.body.title,
+        user_id: req.body.user_id
     })
     .then(dbWishlistData => res.json(dbWishlistData))
     .catch(err => {
@@ -76,7 +77,7 @@ router.delete('/:id', (req, res) => {
     })
     .then(dbWishlistData => {
         if (!dbWishlistData) {
-          res.status(404).json({ message: 'No user found with this id' });
+          res.status(404).json({ message: 'No wishlist found with this id' });
           return;
         }
         res.json(dbWishlistData);
