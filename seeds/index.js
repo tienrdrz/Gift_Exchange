@@ -1,5 +1,6 @@
 const seedUser = require('./user-seeds');
 const seedWishlist = require('./wishlist-seeds');
+const seedItem = require('./item-seeds');
 const seedExchange = require('./exchange-seeds');
 const seedExchangeMembers = require('./exchangeMember-seeds');
 

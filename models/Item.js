@@ -15,16 +15,23 @@ Item.init(
             autoIncrement: true
         },
 
-        item_text: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
+        url: {
+            type: DataTypes.STRING,
+            validate: {
+                len: [1]
+            }
+        },
 
-        user_id: {
+        list_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'

@@ -19,7 +19,8 @@ router.post('/', (req, res) => {
 
     Item.create({
 
-        item_text: req.body.item_text,
+        name: req.body.name,
+        url: req.body.url,
         // user_id: req.session.user_id,
         list_id: req.body.list_id
 
