@@ -28,6 +28,6 @@ const itemData = [
     
 ];
 
-const seedItem = () => Wishlist.bulkCreate(itemData);
+const seedItem = () => Item .bulkCreate(itemData);
 
 module.exports = seedItem;

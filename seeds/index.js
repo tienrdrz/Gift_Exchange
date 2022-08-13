@@ -11,6 +11,7 @@ const seedAll = async () => {
 
     await seedUser();
     await seedWishlist();
+    await seedItem();
     await seedExchange();
     await seedExchangeMembers();
 }
