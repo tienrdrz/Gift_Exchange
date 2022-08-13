@@ -11,7 +11,7 @@ const exchangeRoutes = require('./exhange-routes');
 router.use('/users', userRoutes);
 router.use('/wishlists', wishlistRoutes);
 router.use('/items', itemRoutes);
-router.use('/exchange', exchangeRoutes);
+router.use('/exchanges', exchangeRoutes);
 
 // Export
 module.exports = router;
