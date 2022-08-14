@@ -350,3 +350,9 @@ img.contained {
 	background-color: rgb(30, 150, 55);
 	color: #fff;
 }
+
+.start {
+	height: 50px;
+	width: 50%;
+	margin-bottom: 2rem;
+}
