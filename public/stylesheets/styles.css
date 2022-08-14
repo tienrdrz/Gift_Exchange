@@ -26,6 +26,13 @@ a {
 	box-shadow: 0 0 5px rgba(1, 1, 1, 0.614);
 }
 
+.line {
+	width: 100%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border-bottom: #99bdb5 2px solid;
+}
+
 /* HEADER /////////////////////////////////////// */
 /* Title */
 .title {
@@ -257,37 +264,89 @@ img.contained {
 	width: 800px;
 }
 
+.exchange h3, .wishlist h3 {
+	padding-bottom: 2rem;
+}
+
 .exchanges-card, .wishlists-card {
 	text-align: center;
 	padding: 2rem 2rem;
 }
 
-
 /* CARDS AND CARD INTERACTIONS ////////////////// */
 .card {
-	box-shadow: 0 0 5px rgba(1, 1, 1, 0.2);
 	display: flex;
+	flex-grow: 1;
 	justify-content: center;
 	text-align: left;
 	height: 50px;
-	flex-grow: 1;
+	box-shadow: 0 0 5px rgba(1, 1, 1, 0.2);
 	padding-left: 25px;
 	margin-right: 5px;
 	margin-bottom: 10px;
 	transition: 0.25s ease-in-out all;
 }
 
+
 .card:hover {
 	background-color: rgb(185, 252, 240);
 }
 
+.card-input {
+	background-color: rgb(240, 240, 240);
+}
+
+.card-input:hover {
+	background-color: #fff;
+}
+
+.card-input:focus {
+	background-color:#fff;
+	outline: none;
+}
+
 .content-card {
 	width: 100%;
+	flex-wrap: wrap;
+}
+
+.content-card a p span {
+	font-size: 10px;
+}
+
+.url {
+	text-align: left;
+	height: 30px;
+	width: 100%;
+	font-size: small;
 }
 
 .btn-del {
+	color: #fff;
 	box-shadow: 0 0 5px rgba(1, 1, 1, 0.2);
 	height: 50px;
 	background-color: rgb(255, 125, 125);
 	border: rgb(255, 125, 125);
+	transition: 0.25s ease-in-out all;
+	width: 85px;
+}
+
+.btn-del:hover {
+	background-color: rgb(250, 50, 55);
+	color: #fff;
+}
+
+.btn-add {
+	color: #fff;
+	box-shadow: 0 0 5px rgba(1, 1, 1, 0.2);
+	height: 50px;
+	background-color: rgb(86, 179, 114);
+	border: rgb(86, 179, 114);
+	transition: 0.25s ease-in-out all;
+	width: 85px;
+}
+
+.btn-add:hover {
+	background-color: rgb(30, 150, 55);
+	color: #fff;
 }

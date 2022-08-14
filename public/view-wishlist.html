@@ -20,7 +20,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_io/favicon-16x16.png">
 
 	</head>
-    
+
 	<body>
 		<!-- Header -->
 		<header class="text-center">
@@ -41,11 +41,45 @@
 			</nav>
 		</header>
 
+		<main class="backgroundImg wishlistImg">
+			<div class="content-container">				
+				<div class="wishlist">
+					<!-- Member Cards -->
+					<div class="content wishlists-card d-flex flex-wrap">
+						<h3>Wishlist Title</h3>
 
-		<main>
+						<!-- Add a Member -->
+						<div class="content-card d-flex justify-content-center">
+                            <input name="url" placeholder="URL" id="url" type="text" class="card card-input url" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+							<input name="name" placeholder="Name of item" id="name" type="text" class="card card-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+							<button type="button" class="btn btn-add">Add</button>
+						</div>
 
+						<div class="line"></div>
+
+						<!-- CARD 1 -->
+						<div class="content-card d-flex justify-content-center">
+							<a href="https://www.amazon.ca/" class="card">Item</a>
+							<button type="button" class="btn btn-del">Remove</button>
+						</div>
+
+						<!-- CARD 2 -->
+						<div class="content-card d-flex justify-content-center">
+							<a href="https://www.amazon.ca/" class="card">Item</a>
+							<button type="button" class="btn btn-del">Remove</button>
+						</div>
+
+						<!-- CARD 3 -->
+						<div class="content-card d-flex justify-content-center">
+							<a href="https://www.amazon.ca/" class="card">Item</a>
+							<button type="button" class="btn btn-del">Remove</button>
+						</div>
+                        
+					</div>		
+				</div>		
+			</div>
 		</main>
-		
+
 		<!-- Footer -->
 		<footer class="d-flex text-center">
 			<a href="contact.html">Contact Us</a>			
