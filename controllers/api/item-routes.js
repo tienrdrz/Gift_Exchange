@@ -1,11 +1,8 @@
 // Import
-// const router = require('express').Router();
-import express from 'express';
-const router = express.Router();
+const router = require('express').Router();
 
 // Model Imports
-// const { Item } = require('../../models');
-import { Item } from '../../models/index.js';
+const { Item } = require('../../models');
 
 router.get('/', (req, res) => {
 
@@ -22,7 +19,8 @@ router.post('/', (req, res) => {
 
     Item.create({
 
-        item_text: req.body.item_text,
+        name: req.body.name,
+        url: req.body.url,
         // user_id: req.session.user_id,
         list_id: req.body.list_id
 
@@ -62,5 +60,4 @@ router.delete('/:id', (req, res) => {
 
 
 // Export
-// module.exports = router;
-export default router;
+module.exports = router;

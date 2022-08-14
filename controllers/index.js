@@ -1,19 +1,22 @@
 // Imports
-// const router = require('express').Router();
-import express from 'express';
-const router = express.Router();
+const router = require('express').Router();
 
 // Route imports
-// const apiRoutes = require('./api');
-import apiRoutes from './api/index.js';
-import homeRoutes from './home-routes.js';
-
+const apiRoutes = require('./api');
 
 // Route links
-// router.use('/api', apiRoutes);
-export default router.use('/', homeRoutes);
+router.use('/api', apiRoutes);
 
-// export router.use('/test', homeRoutes);
+const apiRoutes = require('./api');
+const loginRoutes = require('./login-routes');
+const headerRoutes = require('./header-routes');
+const footerRoutes = require('./footer-routes');
+
+// Route links
+router.use('/api', apiRoutes);
+router.use('/', loginRoutes)
+router.use('/', headerRoutes);
+router.use('/', footerRoutes);
 
 // Exports
 // module.exports = router;

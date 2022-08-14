@@ -1,10 +1,8 @@
-// const { Model, DataTypes } = require('sequelize');
-// const sequelize = require('../config/connection.js');
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../config/connection.js';
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection.js');
 
 // Item Model
-export default class Item extends Model { };
+class Item extends Model { };
 
 // Item Model Initializer
 Item.init(
@@ -17,18 +15,25 @@ Item.init(
             autoIncrement: true
         },
 
-        item_text: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
+        url: {
+            type: DataTypes.STRING,
+            validate: {
+                len: [1]
+            }
+        },
 
-        user_id: {
+        list_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
-                model: 'user',
+                model: 'wishlist',
                 key: 'id'
             }
         }
@@ -44,4 +49,4 @@ Item.init(
 );
 
 // Export
-// module.exports = Item;
+module.exports = Item;

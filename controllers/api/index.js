@@ -1,21 +1,16 @@
 // Imports
-// const router = require('express').Router();
-import express from 'express';
-const router = express.Router();
+const router = require('express').Router();
 
 // Route imports
-// const userRoutes = require('./user-routes.js');
-// const wishlistRoutes = require('./wishlist-routes');
-// const itemRoutes = require('./item-routes');
-import userRoutes from './user-routes.js'
-import wishlistRoutes from './wishlist-routes.js';
-import itemRoutes from './item-routes.js';
+const userRoutes = require('./user-routes.js');
+const wishlistRoutes = require('./wishlist-routes');
+const itemRoutes = require('./item-routes');
 
 // Routing links
 router.use('/users', userRoutes);
 router.use('/wishlists', wishlistRoutes);
 router.use('/items', itemRoutes);
+router.use('/exchanges', exchangeRoutes);
 
 // Export
-// module.exports = router;
-export default router;
+module.exports = router;
