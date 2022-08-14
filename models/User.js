@@ -1,10 +1,8 @@
-// const { Model, DataTypes } = require('sequelize');
-// const sequelize = require('../config/connection.js');
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../config/connection.js';
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection.js');
 
 // User Model
-export default class User extends Model {};
+class User extends Model {};
 
 // User Model Initializer
 User.init(
@@ -46,4 +44,4 @@ User.init(
 );
 
 // Export
-// module.exports = User;
+module.exports = User;

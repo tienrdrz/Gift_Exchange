@@ -5,6 +5,7 @@ const router = require('express').Router();
 const userRoutes = require('./user-routes.js');
 const wishlistRoutes = require('./wishlist-routes');
 const itemRoutes = require('./item-routes');
+const exchangeRoutes = require('./item-routes');
 
 // Routing links
 router.use('/users', userRoutes);
