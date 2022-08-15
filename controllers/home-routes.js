@@ -2,11 +2,12 @@ const router = require('express').Router();
 
 // go to login
 router.get('/login', (req, res) => {
-    res.render('login', {
-      id: 1,
-      first_name: 'Etienne',
-      last_name: 'Rodriguez'
-    })
+  if(req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+    res.render('login')
   });
 
 // go to signup
