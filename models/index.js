@@ -34,6 +34,8 @@ ExchangeMember.belongsTo(Exchange, { foreignKey: 'exchange_id' });
 // Exchange and User associations ////////////////////////////////////////
 ExchangeMember.belongsTo(Exchange, { foreignKey: 'exchange_id' });
 Exchange.hasMany(ExchangeMember, { foreignKey: 'exchange_id' });
+ExchangeMember.belongsTo(User, { foreignKey: 'member_id' });
+User.hasMany(ExchangeMember, { foreignKey: 'member_id' });
 
 Exchange.belongsToMany(User, { through: ExchangeMember, foreignKey: 'exchange_id'});
 

@@ -1,15 +1,15 @@
 // Import
 const router = require('express').Router();
+const authenticated = require('../../utils/authentication');
 
 // Model Imports
 const { Exchange, ExchangeMember } = require('../../models');
 
 // Get all Exchanges tied to the logged in user
-router.get('/', (req, res) => {
+router.get('/', authenticated, (req, res) => {
     Exchange.findAll({
         where: {
-            // Need to grab only the exchanges of the logged in user
-            // [Call session id here]
+            host_id: req.session.user_id
         }
     })
         .then(exchangeData => res.json(exchangeData))
@@ -28,15 +28,19 @@ router.get('/:id', (req, res) => {
             model: ExchangeMember,
             attributes: ['id', 'member_id', 'list_id', 'gifting_to_id']
         }
-    });
+    })
+        .then(exchangeData => res.json(exchangeData))
+        .catch( e => { 
+            console.log(e); res.status(500).json(e) 
+        });
 });
 
 // Get all Exchanges related to logged in user
 // Can be used to determine editable exchanges
-router.get('/', (req, res) => {
+router.get('/', authenticated, (req, res) => {
     Exchange.findAll({
         where: {
-            host_id: req.body.id //// TO BE REPLACED WITH SESSION ID ////
+            host_id: req.session.user_id //// TO BE REPLACED WITH SESSION ID ////
         },
         include: [
             { model: ExchangeMember }
@@ -50,11 +54,11 @@ router.get('/', (req, res) => {
 
 // Get all Exchanges logged in user is participating in
 // Can be used to determine which exchange to update the list_id
-router.get('/part-of', (req, res) => {
+router.get('/part-of', authenticated, (req, res) => {
     ExchangeMember.findAll({
         // Find exchanges user is participating in
         where: {
-            member_id: req.body.id //// TO BE REPLACED WITH SESSION ID ////
+            member_id: req.session.user_id //// TO BE REPLACED WITH SESSION ID ////
         },
         include: [
             { model: Exchange }
@@ -88,9 +92,9 @@ router.get('/:id', (req, res) => {
 });
 
 // Create an Exchange
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     Exchange.create({
-        host_id: req.body.host_id, //// TO BE REPLACED WITH SESSION ID ////
+        host_id: req.session.user_id, //// TO BE REPLACED WITH SESSION ID ////
         title: req.body.title
     })
         .then(exchangeData => res.json(exchangeData))
@@ -98,8 +102,12 @@ router.get('/', (req, res) => {
 });
 
 // Delete an Exchange
-router.get('/:id', (req, res) => {
-    Exchange.destroy({ where: { id: req.params.id } })
+router.delete('/:id', (req, res) => {
+    Exchange.destroy({ 
+        where: { 
+            id: req.params.id 
+        } 
+    })
         .then(exchangeData => {
             if (!exchangeData) {
                 res.status(404).json({ message: 'no exchange found with this id' });
@@ -119,7 +127,14 @@ router.get('/:id', (req, res) => {
 // Adds a participant to the Exchange by inserting to Exchange Member
 router.put('/:id/add-member', (req, res) => {
     Exchange.addMember(req)
-        .then(exchangeData => res.json(exchangeData))
+        .then(exchangeData => {
+            if (exchangeData) {
+                res.json(exchangeData);
+            }
+            else {
+                res.status(404).json({ message: 'User already exists in Exchange' });
+            }
+        })
         .catch(e => { console.log(e); res.status(500).json(e) });
 });
 
@@ -135,6 +150,18 @@ router.put('/:id/del-member', (req, res) => {
         })
         .catch(e => { console.log(e); res.status(500).json(e) });
 });
+
+// Checks if participant already belongs in exchange
+router.put('/:id/', (req, res) => {
+    Exchange.checkUser(req)
+        .then(exchangeData => {
+            if (!exchangeData) {
+                return true;
+            }
+            res.json(exchangeData);
+        })
+        .catch(e => { console.log(e); res.status(500).json(e) });
+    })
 
 // Updates the wishlist displayed in the current exchange
 router.put('/:id/update', (req, res) => {
