@@ -110,20 +110,24 @@ router.delete('/:id', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            username: req.body.username
+            username: req.body.username,
+            password: req.body.password
         }
     }).then(dbUserData => {
+
+        console.log(dbUserData);
+
         if (!dbUserData) {
             res.status(400).json({ message: 'This username does not match an existing user.'});
             return;
        }
 
-       const validPassword = dbUserData.checkPassword(req.body.password);
+    //    const validPassword = dbUserData.checkPassword(req.body.password);
 
-       if (!validPassword) {
-        res.status(400).json({ message: 'Incorrect password. Try again.'});
-        return;
-       }
+    //    if (!validPassword) {
+    //     res.status(400).json({ message: 'Incorrect password. Try again.'});
+    //     return;
+    //    }
 
        req.session.save(() => {
         req.session.user_id = dbUserData.id;

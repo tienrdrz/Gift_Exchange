@@ -3,6 +3,7 @@ async function loginFormHandler(event) {
 
     const username = document.querySelector('#username').value.trim();
     const password = document.querySelector('#password').value.trim();
+    console.log(username, password);
 
     if (username && password) {
         const response = await fetch('/api/users/login', {
@@ -14,7 +15,7 @@ async function loginFormHandler(event) {
             headers: { 'Content-Type' : 'application/json'}
         });
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             alert(response.statusText);
         }
