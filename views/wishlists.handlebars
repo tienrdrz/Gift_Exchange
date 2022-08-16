@@ -4,31 +4,23 @@
             
             <!-- Wishlist Title -->
             <div class="content wishlists-card">
-                <h3>Your Wishlists</h3>						
-                <button type="button" class="btn btn-light">Create a Wishlist</button>
+                <h3>Create a new Wishlist</h3>
+                <input name="title" placeholder="Wishlist Name" id="title" type="text" class="card card-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <button type="button" class="btn btn-add">Create</button>
             </div>
             
-            <!-- Wishlist Title -->
+            <!-- Wishlist Cards -->
             <div class="content wishlists-card d-flex flex-wrap">
-                <!-- CARD 1 -->
+
+                {{#each wishlists}}
                 <div class="content-card d-flex justify-content-center">
-                    <a href="view-wishlist.html" class="card">Wishlist Title</a>
+                    <a href="....?{{id}}" class="card" wishlist_id="{{id}}">{{title}}</a>
                     <button type="button" class="btn btn-del">Delete</button>
                 </div>
-
-                <!-- CARD 2 -->
-                <div class="content-card d-flex justify-content-center">
-                    <a href="view-wishlist.html" class="card">Wishlist Title</a>
-                    <button type="button" class="btn btn-del">Delete</button>
-                </div>
-
-                <!-- CARD 3 -->
-                <div class="content-card d-flex justify-content-center">
-                    <a href="view-wishlist.html" class="card">Wishlist Title</a>
-                    <button type="button" class="btn btn-del">Delete</button>
-                </div>
-            </div>
-
+                {{/each}}
+            
         </div>
     </div>
 </main>
+
+<script src="/javascripts/del-wishlist.js"></script>
