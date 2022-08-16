@@ -2,49 +2,63 @@ async function deleteMember(event) {
     const exchangeId = window.location.href.split('/exchange/')[1];
     const exchangeMemberId = event.target.getAttribute('exchange_member_id');
 
-    fetch(`../api/exchanges/${exchangeId}/del-member`, {
+    const deleteMemberRes = await fetch(`../api/exchanges/${exchangeId}/del-member`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             exchange_member_id: exchangeMemberId
         })
     })
-        .then(document.location.replace(`/exchange/${exchangeId}`));    
+    
+    if (deleteMemberRes.ok) {
+        (document.location.replace(`/exchange/${exchangeId}`));    
+    }
+    else {
+        alert('Failed to delete member');
+        console.log(deleteMemberRes.statusText);
+    }    
 }
 
 async function addMember(event) {
     // First checks if user in field exists in user table
     const username = document.querySelector('#member').value;
-    fetch(`../api/users/exists`, {
+    
+    const userExistsRes = await fetch(`../api/users/exists`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             username: username
         })
-    })
-        .then(response => {
-            console.log(response.ok);
-            if (!response.ok) {
-                alert('User does not exist');
-                return;
-            } else {
-                // Check if user is already in the exchange
-                // MORE CODE
-                return response.json();
-            }
-        })
-        // If user exists, add user to exchange
-        .then(data => {            
-            const exchangeId = window.location.href.split('/exchange/')[1];
-            fetch(`../api/exchanges/${exchangeId}/add-member`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    user_id: data.id
-                })
+    });
+
+    // If user exists, add user
+    if (userExistsRes.ok) {
+        // Get exchange 
+        const exchangeId = window.location.href.split('/exchange/')[1];
+
+        const addMemberRes = await  fetch(`../api/exchanges/${exchangeId}/add-member`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                user_id: data.id
             })
-            .then(document.location.replace(`/exchange/${exchangeId}`));   
         });
+
+        // If add member is success, refresh page to reflect changes
+        if (addMemberRes.ok) {
+            document.location.reload();
+        }
+        // Else throw an error
+        else {
+            alert('Failed to create a new exchange');
+            console.log(addMemberRes.statusText);
+        }
+    }
+    // If user does not exist, throw an error
+    else {
+        alert('User does not exist');
+        return;
+    }
 }
 
 // Event listeners
@@ -53,5 +67,6 @@ document.querySelectorAll('.btn-del').forEach(delBtn => {
     delBtn.addEventListener('click', deleteMember);
 });
 
+// A listener to monitor if the add memner button is clicked
 document.querySelector('.btn-add').addEventListener('click', addMember);
 
