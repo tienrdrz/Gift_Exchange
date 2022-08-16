@@ -94,6 +94,7 @@ nav a:hover, footer a:hover {
 	background-size: cover;
 	background-position: center;
 	background-position: 80%;
+	min-height: 75vh;
 }
 
 .homeImg {
@@ -266,10 +267,14 @@ img.contained {
 
 .exchange h3, .wishlist h3 {
 	padding-bottom: 2rem;
+	width: 100%;
 }
 
 .exchanges-card, .wishlists-card {
 	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	padding: 2rem 2rem;
 }
 

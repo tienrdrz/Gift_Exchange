@@ -4,12 +4,15 @@
             
             <!-- Wishlist Title -->
             <div class="content wishlists-card">
-                <h3>Your Wishlists</h3>						
-                <button type="button" class="btn btn-light">Create a Wishlist</button>
+                <h3>Create a new Wishlist</h3>
+                <input name="title" placeholder="Wishlist Name" id="title" type="text" class="card card-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <button type="button" class="btn btn-add">Create</button>
             </div>
             
             <!-- Wishlist Title -->
             <div class="content wishlists-card d-flex flex-wrap">
+                <h3>Your Wishlists</h3>						
+                
                 <!-- CARD 1 -->
                 <div class="content-card d-flex justify-content-center">
                     <a href="view-wishlist.html" class="card">Wishlist Title</a>
@@ -32,3 +35,5 @@
         </div>
     </div>
 </main>
+
+<script src="/javascripts/wishlist-handlers.js"></script>

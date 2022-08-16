@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const Exchange = require('../models/Exchange');
+const sequelize = require('sequelize');
+const { Exchange,  Wishlist, Item } = require('../models/');
 
 router.get('/', (req, res) => {
     res.render('home');
@@ -10,22 +11,34 @@ router.get('/dashboard', (req, res) => {
 });
 
 router.get('/exchanges', (req, res) => {
-    Exchange.findAll({
-        attributes: [
-            'id',
-            'title',
-            'host_id'
-        ]
-    })
+    Exchange.findAll()
     .then(exchangeData => {
         const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
-
-        res.render('exchanges', {exchanges});
+        res.render('exchanges', { exchanges });
     })
 });
 
 router.get('/wishlists', (req, res) => {    
     res.render('wishlists')
 });
+
+router.get('/wishlist/:id', (req, res) => {
+    Item.findAll({
+        where: {
+            list_id: req.params.id
+        },
+        include: [
+            {
+                model: Wishlist,
+                attributes: ['id', 'title', 'user_id']
+            }
+        ]
+    })
+    .then(itemData => {    
+        const items = itemData.map(item => item.get({ plain: true }));
+        const list_title = items[0].wishlist.title;
+        res.render('wishlist', { items, list_title });
+    })
+})
 
 module.exports = router;
