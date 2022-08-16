@@ -5,6 +5,7 @@ const e = require('express');
 const { response } = require('express');
 // Model Imports
 const { User } = require('../../models');
+const authenticated = require('../../utils/authentication');
 
 //GET all users (maybe but included for now)
 router.get('/', (req, res) => {
@@ -86,7 +87,7 @@ router.post('/', (req, res) => {
 }) 
 
 //DELETE to delete your account
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authenticated, (req, res) => {
     User.destroy({
         where: {
             id: req.params.id
@@ -138,19 +139,19 @@ router.post('/login', (req, res) => {
 });
 
 //POST to logout of account
-router.post('/logout', (req, res) => {
+router.post('/logout', authenticated, (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
           res.status(204).end();
         });
-      }
-      else {
+    }
+    else {
         res.status(404).end();
-      }
+    }
 });
 
 
-// Reques to see if user exists given username
+// Request to see if user exists given username
 router.put('/exists', (req, res) => {
     User.exists(req)
         .then(userData => {
@@ -161,6 +162,11 @@ router.put('/exists', (req, res) => {
             res.json(userData);
         })
         .catch(e => { console.log(e); res.status(500).json(e) });
+});
+
+// Request to see if user is already in exchange
+router.put('exists-in-exchange', (req, res) => {
+    
 })
 
 // Export

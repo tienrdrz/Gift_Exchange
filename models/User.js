@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
-    }
+    };
 
     // Check is user exists and returns username
     static exists(req) {
@@ -16,7 +16,7 @@ class User extends Model {
                 username: req.body.username
             }
         })
-    }
+    };
 };
 
 // User Model Initializer

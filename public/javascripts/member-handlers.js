@@ -31,16 +31,19 @@ async function addMember(event) {
         })
     });
 
-    // If user exists, add user
+    // If user exists proceed with adding of user
     if (userExistsRes.ok) {
+        const userData = JSON.parse(await userExistsRes.text());
+        
         // Get exchange 
         const exchangeId = window.location.href.split('/exchange/')[1];
-
-        const addMemberRes = await  fetch(`../api/exchanges/${exchangeId}/add-member`, {
+        
+        // Adds user
+        const addMemberRes = await fetch(`../api/exchanges/${exchangeId}/add-member`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                user_id: data.id
+                user_id: userData.id
             })
         });
 
@@ -50,7 +53,7 @@ async function addMember(event) {
         }
         // Else throw an error
         else {
-            alert('Failed to create a new exchange');
+            alert('Failed to add a new member');
             console.log(addMemberRes.statusText);
         }
     }
