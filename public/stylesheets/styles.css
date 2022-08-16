@@ -11,6 +11,11 @@
 	font-family: "Playfair Display", serif;
 }
 
+h1:hover {
+	color: var(--primary-color);
+	cursor: pointer;
+}
+
 /* GENERAL STYLING ////////////////////////////// */
 
 a {
@@ -47,21 +52,23 @@ a {
 	margin-top: 25px;
 }
 
-.login {	
+.login {
 	text-align: right;
 	padding-right: 5px;
-	border-right: #606060 1px solid;	
+	border-right: #606060 1px solid;
 }
 
-.logout, .signup {
+.logout,
+.signup {
 	font-size: medium;
 	text-align: left;
 	margin-left: 5px;
 }
 
 /* NAVIGATION BAR AND FOOTER //////////////////// */
-nav, footer {
-	font-size: 1.5rem;
+nav,
+footer {
+	font-size: 1.2rem;
 	background-color: var(--secondary-color);
 	justify-content: center;
 	/* padding: 1.2rem 7rem; */
@@ -74,7 +81,9 @@ nav, footer {
 	top: 0;
 }
 
-nav a, footer a, footer p {
+nav a,
+footer a,
+footer p {
 	opacity: 0.8;
 	margin-right: 1rem;
 	margin-left: 1rem;
@@ -83,7 +92,8 @@ nav a, footer a, footer p {
 	transition: 0.25s ease-in-out all;
 }
 
-nav a:hover, footer a:hover {
+nav a:hover,
+footer a:hover {
 	opacity: 1;
 	text-shadow: 1px 0 10px #00ffc8;
 	color: var(--teritary-color);
@@ -94,6 +104,7 @@ nav a:hover, footer a:hover {
 	background-size: cover;
 	background-position: center;
 	background-position: 80%;
+	min-height: 75vh;
 }
 
 .homeImg {
@@ -101,7 +112,7 @@ nav a:hover, footer a:hover {
 }
 
 .dashboardImg {
-	background-image: url("../images/pinkgift.jpeg");;
+	background-image: url("../images/pinkgift.jpeg");
 }
 
 .exchangeImg {
@@ -124,7 +135,7 @@ nav a:hover, footer a:hover {
 	background-image: url("../images/browngift.jpeg");
 }
 
-.signupImg{
+.signupImg {
 	background-image: url("../images/pinkbowlace.jpeg");
 }
 
@@ -152,19 +163,19 @@ nav a:hover, footer a:hover {
 
 /* HOME, CONTACT, ABOUT, PRIVACY //////////////// */
 
-.home-text, 
-.privacy-text, 
-.about-text, 
+.home-text,
+.privacy-text,
+.about-text,
 .contact-text {
 	text-align: center;
 	padding: 2rem 2rem;
 	width: 800px;
 }
 
-.home-img, 
-.privacy-img, 
-.about-img, 
-.contact-img  {
+.home-img,
+.privacy-img,
+.about-img,
+.contact-img {
 	justify-content: center;
 	width: 350px;
 	object-fit: cover;
@@ -173,16 +184,16 @@ nav a:hover, footer a:hover {
 	overflow: hidden;
 }
 
-.home-img img, 
-.privacy-img img, 
-.about-img img, 
-.contact-img img  {
+.home-img img,
+.privacy-img img,
+.about-img img,
+.contact-img img {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	-webkit-transform: translate(-50%,-50%);
-		-ms-transform: translate(-50%,-50%);
-			transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 img.contained {
@@ -245,13 +256,15 @@ img.contained {
 
 /* LOGIN, SIGN UP PAGE ////////////////////////// */
 
-.login-form, .signup-form {
+.login-form,
+.signup-form {
 	text-align: center;
 	padding: 2rem 2rem;
 	width: 500px;
 }
 
-.login-form h3, .signup-form h3 {
+.login-form h3,
+.signup-form h3 {
 	padding-bottom: 1rem;
 }
 
@@ -260,16 +273,23 @@ img.contained {
 }
 
 /* EXCHANGE AND WISHLIST PAGE /////////////////// */
-.exchange, .wishlist {
+.exchange,
+.wishlist {
 	width: 800px;
 }
 
-.exchange h3, .wishlist h3 {
+.exchange h3,
+.wishlist h3 {
 	padding-bottom: 2rem;
+	width: 100%;
 }
 
-.exchanges-card, .wishlists-card {
+.exchanges-card,
+.wishlists-card {
 	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	padding: 2rem 2rem;
 }
 
@@ -287,7 +307,6 @@ img.contained {
 	transition: 0.25s ease-in-out all;
 }
 
-
 .card:hover {
 	background-color: rgb(185, 252, 240);
 }
@@ -301,7 +320,7 @@ img.contained {
 }
 
 .card-input:focus {
-	background-color:#fff;
+	background-color: #fff;
 	outline: none;
 }
 
@@ -355,4 +374,23 @@ img.contained {
 	height: 50px;
 	width: 50%;
 	margin-bottom: 2rem;
+}
+
+.break {
+	flex-basis: 100%;
+	height: 0px;
+}
+
+.btn-login,
+.btn-signup {
+	margin-top: 1rem;
+	background-color: white;
+	box-shadow: 0 0 5px rgba(1, 1, 1, 0.2);
+	width: 50%;
+}
+
+.btn-login:hover,
+.btn-signup:hover {
+	background-color: #ebebeb;
+	border-color: #ebebeb;
 }

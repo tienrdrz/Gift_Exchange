@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
         where: {
             // Need to grab only the exchanges of the logged in user
             // [Call session id here]
+            // host_id: req.params.session;
+            host_id: req.body.id
         }
     })
         .then(exchangeData => res.json(exchangeData))
@@ -94,7 +96,7 @@ router.get('/:id', (req, res) => {
 // Create an Exchange
 router.post('/', (req, res) => {
     Exchange.create({
-        host_id: req.body.host_id, //// TO BE REPLACED WITH SESSION ID ////
+        host_id: req.session.user_id, //// TO BE REPLACED WITH SESSION ID ////
         title: req.body.title
     })
         .then(exchangeData => res.json(exchangeData))

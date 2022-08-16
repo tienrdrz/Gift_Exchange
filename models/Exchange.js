@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 const ExchangeMember = require('./ExchangeMember.js');
+const User = require('./User.js');
 
 // Wishlist Model
 class Exchange extends Model {
@@ -17,7 +18,7 @@ class Exchange extends Model {
         return ExchangeMember.destroy({
             where: {
                 exchange_id: req.params.id,
-                member_id: req.body.user_id
+                id: req.body.exchange_member_id
             }
         });         
     };
