@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { stringify } = require('querystring');
 const sequelize = require('sequelize');
 const { User, Exchange,  Wishlist, Item, ExchangeMember } = require('../models/');
+const Promise = require('bluebird');
 
 router.get('/', (req, res) => {
     res.render('home', { loggedIn: req.session.loggedIn });
@@ -14,22 +15,50 @@ router.get('/dashboard', (req, res) => {
 router.get('/exchanges', (req, res) => {
     // checks if user is logged in, else redirect to login page
     if (req.session.user_id) { 
-        Exchange.findAll({
+        const getExchange = Exchange.findAll({
             where: {
                 host_id: req.session.user_id
             }
-        })
-        .then(exchangeData => {
-            if (!exchangeData) {
+        });
+
+        const getMemberOf = ExchangeMember.findAll({
+            where: {
+                member_id: req.session.user_id
+            },
+            // include: [
+            //     {
+            //         model: Exchange,
+            //         include: ['id', 'title', 'started']
+            //     }
+            // ]
+        });
+
+        Promise.all([getExchange, getMemberOf]).then(responseData => {
+            const exchangeData = responseData[0];
+            const memberOfData = responseData[1];
+
+            console.log(memberOfData);
+
+            if (!exchangeData || !memberOfData) {
                 res.status(404).json({ message: 'no user found with current session id'});
+                return;
             }
 
             const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
-            res.render('exchanges', { exchanges , loggedIn: true });
+            const memberOf = memberOfData.map(memberOf => memberOf.get({ plain: true }));
+            res.render('exchanges', { exchanges, memberOf, loggedIn: true });
         })
-        .catch( e => { 
-            console.log(e); res.status(500).json(e) 
-        });
+        // .then(exchangeData => {
+        //     if (!exchangeData) {
+        //         res.status(404).json({ message: 'no user found with current session id'});
+        //     }
+
+        //     const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
+        //     res.render('exchanges', { exchanges , loggedIn: true });
+        // })
+        // .catch( e => { 
+        //     console.log(e); res.status(500).json(e) 
+        // });
     } else {
        res.redirect('/login');
     }

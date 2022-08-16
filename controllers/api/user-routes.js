@@ -1,10 +1,8 @@
 // Imports
 const router = require('express').Router();
 
-const e = require('express');
-const { response } = require('express');
 // Model Imports
-const { User } = require('../../models');
+const { User, Exchange, ExchangeMember } = require('../../models');
 const authenticated = require('../../utils/authentication');
 
 //GET all users (maybe but included for now)
@@ -150,7 +148,6 @@ router.post('/logout', authenticated, (req, res) => {
     }
 });
 
-
 // Request to see if user exists given username
 router.put('/exists', (req, res) => {
     User.exists(req)
@@ -164,10 +161,28 @@ router.put('/exists', (req, res) => {
         .catch(e => { console.log(e); res.status(500).json(e) });
 });
 
-// Request to see if user is already in exchange
-router.put('exists-in-exchange', (req, res) => {
-    
-})
+// Get all Exchanges logged in user is participating in an exchange
+// Can be used to determine which exchange to update the list_id
+router.get('/:id/part-of', (req, res) => {
+    User.findAll({
+        where: {
+            id: req.session.user_id
+        },
+        // include: [
+        //     { 
+        //         model: Exchange,
+        //         attributes: ['title'],
+        //         through: ExchangeMember
+        //     }
+        // ]
+    })
+        .then(response => {
+            return res.json(response)
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        });
+});
 
 // Export
 module.exports = router;
