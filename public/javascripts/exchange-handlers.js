@@ -4,7 +4,7 @@ async function deleteExchange(event) {
     fetch(`api/exchanges/${exchangeId}`, {
         method: 'DELETE'
     })
-        .then(document.location.replace('/exchanges'));    
+        // .then(document.location.replace('/exchanges'));    
 }
 
 // Event listeners

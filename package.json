@@ -8,7 +8,7 @@
     "type": "module",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "seeds": "node seed/index.js"
+    "seeds": "node seeds/index.js"
   },
   "repository": {
     "type": "git",

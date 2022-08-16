@@ -1,17 +1,19 @@
 // Imports
 const router = require('express').Router();
 
+const e = require('express');
+const { response } = require('express');
 // Model Imports
 const { User } = require('../../models');
 
 //GET all users (maybe but included for now)
 router.get('/', (req, res) => {
-    User.findAll()
-    /*attributes: { exclude: ['password'] }, 
-      where: {
-        id: req.params.id
-      }
-    */
+    User.findAll({
+        attributes: { exclude: ['password'] }, 
+        where: {
+            id: req.params.id
+        }
+    })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
         console.log(err);
@@ -22,7 +24,7 @@ router.get('/', (req, res) => {
 //GET individual user
 router.get('/:id', (req, res) => {
     User.findOne({
-        //attributes: { exclude: ['password'] },
+        attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         }
@@ -74,15 +76,12 @@ router.post('/', (req, res) => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
-
             res.json(dbUserData);
-//     .then(dbUserData => res.json(dbUserData))
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     })
-// });
         });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     })
 }) 
 
@@ -110,8 +109,7 @@ router.delete('/:id', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            username: req.body.username,
-            // password: req.body.password
+            username: req.body.username
         }
     }).then(dbUserData => {
 
@@ -150,6 +148,21 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
       }
 });
+
+
+// Reques to see if user exists given username
+router.put('/exists', (req, res) => {
+    User.exists(req)
+        .then(userData => {
+            if (!userData) { 
+                res.status(400).json({ message: ' user does not exist'})
+                return;
+            }
+            res.json(userData);
+        })
+        .catch(e => { console.log(e); res.status(500).json(e) });
+})
+
 // Export
 module.exports = router;
 

@@ -1,6 +1,7 @@
 const router = require('express').Router();
+const { stringify } = require('querystring');
 const sequelize = require('sequelize');
-const { Exchange,  Wishlist, Item } = require('../models/');
+const { User, Exchange,  Wishlist, Item, ExchangeMember } = require('../models/');
 
 router.get('/', (req, res) => {
     res.render('home');
@@ -11,12 +12,47 @@ router.get('/dashboard', (req, res) => {
 });
 
 router.get('/exchanges', (req, res) => {
-    Exchange.findAll()
-    .then(exchangeData => {
-        const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
-        res.render('exchanges', { exchanges });
-    })
+    // checks if user is logged in, else redirect to login page
+    if (req.session.user_id) { 
+        Exchange.findAll({
+            where: {
+                host_id: req.session.user_id
+            }
+        })
+        .then(exchangeData => {
+            if (!exchangeData) {
+                res.status(404).json({ message: 'no user found with current session id'});
+            }
+
+            const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
+            res.render('exchanges', { exchanges });
+        })
+        .catch( e => { 
+            console.log(e); res.status(500).json(e) 
+        });
+    } else {
+       res.redirect('/login');
+    }
 });
+
+router.get('/exchange/:id', (req, res) => {
+    ExchangeMember.findAll({
+        where: {
+            exchange_id: req.params.id
+        },
+        include: [
+            {
+                model: User,
+                attributes: ['username']        
+            }
+        ]
+    })
+    .then(memberData => {
+        const member = memberData.map(member => member.get({ plain: true }));
+        res.render('exchange', { member });
+        console.log(member);
+    })
+})
 
 router.get('/wishlists', (req, res) => {    
     res.render('wishlists')
@@ -36,8 +72,7 @@ router.get('/wishlist/:id', (req, res) => {
     })
     .then(itemData => {    
         const items = itemData.map(item => item.get({ plain: true }));
-        const list_title = items[0].wishlist.title;
-        res.render('wishlist', { items, list_title });
+        res.render('wishlist', { items });
     })
 })
 

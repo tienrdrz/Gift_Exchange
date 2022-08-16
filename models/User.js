@@ -7,6 +7,16 @@ class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
+
+    // Check is user exists and returns username
+    static exists(req) {
+        return User.findOne({
+            attributes: { exclude: ['password'] },
+            where: {
+                username: req.body.username
+            }
+        })
+    }
 };
 
 // User Model Initializer
