@@ -86,6 +86,26 @@ router.post('/', (req, res) => {
     })
 }) 
 
+//DELETE to delete your account
+router.delete('/:id', (req, res) => {
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'The user you are trying to delete does not exist'});
+            return;
+        }
+        res.json(dbUserData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
+
 //POST to login to account
 router.post('/login', (req, res) => {
     User.findOne({
