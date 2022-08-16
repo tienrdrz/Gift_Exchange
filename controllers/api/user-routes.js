@@ -62,30 +62,6 @@ router.delete('/:id', (req, res) => {
     })
 });
 
-//POST a new user
-router.post('/', (req, res) => {
-    //expects: username, password
-    User.create({
-        username: req.body.username,
-        password: req.body.password
-    })
-    .then(dbUserData => {
-        req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
-
-            res.json(dbUserData);
-//     .then(dbUserData => res.json(dbUserData))
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     })
-// });
-        });
-    })
-}) 
-
 //DELETE to delete your account
 router.delete('/:id', (req, res) => {
     User.destroy({
@@ -106,6 +82,24 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+//POST a new user
+router.post('/', (req, res) => {
+    //expects: username, password
+    User.create({
+        username: req.body.username,
+        password: req.body.password
+    })
+    .then(dbUserData => {
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
+
+            res.json(dbUserData);
+        });
+    })
+}) 
+
 //POST to login to account
 router.post('/login', (req, res) => {
     User.findOne({
@@ -114,9 +108,7 @@ router.post('/login', (req, res) => {
             // password: req.body.password
         }
     }).then(dbUserData => {
-
         // console.log(dbUserData);
-
         if (!dbUserData) {
             res.status(400).json({ message: 'This username does not match an existing user.'});
             return;

@@ -14,9 +14,10 @@ async function signupFormHandler(event) {
             headers: { 'Content-Type' : 'application/json'}
         });
         if (response.ok) {
-            console.log('Successful');
+            document.location.replace('/login');
         } else {
             alert('This username already exists!');
+            return;
         }
     }
 }
