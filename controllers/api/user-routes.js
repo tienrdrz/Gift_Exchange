@@ -116,7 +116,7 @@ router.post('/login', (req, res) => {
 });
 
 //POST to logout of account
-router.post('/', (req, res) => {
+router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
           res.status(204).end();
