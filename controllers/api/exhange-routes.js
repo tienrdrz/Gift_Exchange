@@ -8,7 +8,10 @@ const { Exchange, ExchangeMember } = require('../../models');
 router.get('/', (req, res) => {
     Exchange.findAll({
         where: {
-            host_id: req.session.user_id
+            // Need to grab only the exchanges of the logged in user
+            // [Call session id here]
+            // host_id: req.params.session;
+            host_id: req.body.id
         }
     })
         .then(exchangeData => res.json(exchangeData))
@@ -93,7 +96,7 @@ router.get('/:id', (req, res) => {
 // Create an Exchange
 router.post('/', (req, res) => {
     Exchange.create({
-        host_id: req.body.host_id, //// TO BE REPLACED WITH SESSION ID ////
+        host_id: req.session.user_id, //// TO BE REPLACED WITH SESSION ID ////
         title: req.body.title
     })
         .then(exchangeData => res.json(exchangeData))
@@ -146,7 +149,7 @@ router.put('/:id/del-member', (req, res) => {
 // Updates the wishlist displayed in the current exchange
 router.put('/:id/update', (req, res) => {
     Exchange.updateList(req)
-        .then(exchangeData)
+        .then(exchangeData => res.json(exchangeData))
         .catch(e => { console.log(e); res.status(500).json(e) });
 });
 
