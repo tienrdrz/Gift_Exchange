@@ -1,0 +1,25 @@
+<main class="backgroundImg exchangeImg">
+    <div class="content-container">				
+        <div class="exchange">
+            
+            <!-- Exchange Title -->
+            <div class="content exchanges-card">
+                <h3>Your Exchanges</h3>						
+                <button type="button" class="btn btn-light">Create an Exchange</button>
+            </div>
+
+            <!-- Exchange Cards -->
+            <div class="content exchanges-card d-flex flex-wrap">
+                
+                {{#each exchanges}}
+                <div class="content-card d-flex justify-content-center">
+                    <a href="view-exchange.html" class="card" exchange_id="{{id}}">{{title}}</a>
+                    <button type="button" class="btn btn-del" exchange_id="{{id}}">Delete</button>
+                </div>
+                {{/each}}
+                    
+        </div>		
+    </div>
+</main>
+
+<script src="/javascripts/del-exchange.js"></script>

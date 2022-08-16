@@ -1,0 +1,26 @@
+<main class="backgroundImg wishlistImg">
+    <div class="content-container">
+        <div class="wishlist">
+            
+            <!-- Wishlist Title -->
+            <div class="content wishlists-card">
+                <h3>Your Wishlists</h3>						
+                <button type="button" class="btn btn-light">Create a Wishlist</button>
+            </div>
+            
+            <!-- Wishlist Cards -->
+            <div class="content wishlists-card d-flex flex-wrap">
+
+                {{#each wishlists}}
+                <div class="content-card d-flex justify-content-center">
+                    <a href="....?{{id}}" class="card" wishlist_id="{{id}}">{{title}}</a>
+                    <button type="button" class="btn btn-del">Delete</button>
+                </div>
+                {{/each}}
+            
+
+        </div>
+    </div>
+</main>
+
+<script src="/javascripts/del-wishlist.js"></script>
