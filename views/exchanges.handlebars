@@ -10,25 +10,16 @@
 
             <!-- Exchange Cards -->
             <div class="content exchanges-card d-flex flex-wrap">
-                <!-- CARD 1 -->
+                
+                {{#each exchanges}}
                 <div class="content-card d-flex justify-content-center">
-                    <a href="view-exchange.html" class="card">Exchange Title</a>
-                    <button type="button" class="btn btn-del">Delete</button>
+                    <a href="view-exchange.html" class="card" exchange_id="{{id}}">{{title}}</a>
+                    <button type="button" class="btn btn-del" exchange_id="{{id}}">Delete</button>
                 </div>
-
-                <!-- CARD 2 -->
-                <div class="content-card d-flex justify-content-center">
-                    <a href="view-exchange.html" class="card">Exchange Title</a>
-                    <button type="button" class="btn btn-del">Delete</button>
-                </div>
-
-                <!-- CARD 3 -->
-                <div class="content-card d-flex justify-content-center">
-                    <a href="view-exchange.html" class="card">Exchange Title</a>
-                    <button type="button" class="btn btn-del">Delete</button>
-                </div>
-            </div>
+                {{/each}}
                     
         </div>		
     </div>
 </main>
+
+<script src="/javascripts/del-exchange.js"></script>

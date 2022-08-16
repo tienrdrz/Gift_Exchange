@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Exchange = require('../models/Exchange');
 
 router.get('/', (req, res) => {
     res.render('home');
@@ -9,10 +10,21 @@ router.get('/dashboard', (req, res) => {
 });
 
 router.get('/exchanges', (req, res) => {
-    res.render('exchanges')
+    Exchange.findAll({
+        attributes: [
+            'id',
+            'title',
+            'host_id'
+        ]
+    })
+    .then(exchangeData => {
+        const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
+
+        res.render('exchanges', {exchanges});
+    })
 });
 
-router.get('/wishlists', (req, res) => {
+router.get('/wishlists', (req, res) => {    
     res.render('wishlists')
 });
 

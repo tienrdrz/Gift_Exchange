@@ -28,7 +28,11 @@ router.get('/:id', (req, res) => {
             model: ExchangeMember,
             attributes: ['id', 'member_id', 'list_id', 'gifting_to_id']
         }
-    });
+    })
+        .then(exchangeData => res.json(exchangeData))
+        .catch( e => { 
+            console.log(e); res.status(500).json(e) 
+        });
 });
 
 // Get all Exchanges related to logged in user
@@ -88,7 +92,7 @@ router.get('/:id', (req, res) => {
 });
 
 // Create an Exchange
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     Exchange.create({
         host_id: req.body.host_id, //// TO BE REPLACED WITH SESSION ID ////
         title: req.body.title
@@ -98,8 +102,12 @@ router.get('/', (req, res) => {
 });
 
 // Delete an Exchange
-router.get('/:id', (req, res) => {
-    Exchange.destroy({ where: { id: req.params.id } })
+router.delete('/:id', (req, res) => {
+    Exchange.destroy({ 
+        where: { 
+            id: req.params.id 
+        } 
+    })
         .then(exchangeData => {
             if (!exchangeData) {
                 res.status(404).json({ message: 'no exchange found with this id' });
