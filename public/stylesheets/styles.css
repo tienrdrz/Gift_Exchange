@@ -33,6 +33,17 @@ a {
 	border-bottom: #99bdb5 2px solid;
 }
 
+h1:hover {
+	color: var(--primary-color);
+	cursor: pointer;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 /* HEADER /////////////////////////////////////// */
 /* Title */
 .title {
@@ -111,12 +122,14 @@ footer a:hover {
 }
 
 .exchangeImg {
-	background-image: url("../images/giftExchange.png");
+	background-image: url("../images/white-pink-gifts.jpeg");
+	/* background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat; */
 }
 
 .wishlistImg {
 	background-image: url("../images/giftcart.jpeg");
-	background-position-x: 50%;
 }
 
 .aboutUsImg {
