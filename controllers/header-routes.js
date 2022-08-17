@@ -140,15 +140,16 @@ router.get('/wishlists', (req, res) => {
                 res.status(404).json({message: 'no wishlist found with this id'});
             }
         const wishlists = wishlistData.map(wishlist => wishlist.get ({plain: true}));
-    res.render('wishlists', { wishlists, loggedIn: req.session.user_id });
-    })
-    .catch (e=> {
-        console.log(e); res.status(500).json(e)
-    });
+        res.render('wishlists', { wishlists, loggedIn: req.session.user_id });
+        })
+        .catch (e=> {
+            console.log(e); res.status(500).json(e)
+        });
     
-} else {
-    res.redirect('/login');
-}
+    } else {
+        res.redirect('/login');
+    }
+});
 
 
 router.get('/wishlist/:id', (req, res) => {
