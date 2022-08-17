@@ -1,0 +1,38 @@
+<main class="backgroundImg exchangeImg">
+    <div class="content-container">				
+        <div class="exchange">
+            <!-- Member Cards -->
+            <div class="content exchanges-card d-flex flex-wrap">
+                <div class="content-card ">
+                    <h3>{{title}}</h3>							
+                    <!-- Button to lock exchange and shuffle participating users -->
+                    {{!-- <button type="button" class="btn btn-light start">Start Exchange</button> --}}
+                </div>
+
+                {{!-- <div class="line"></div> --}}
+
+                <!-- Add a Member -->
+                <div class="content-card d-flex justify-content-center">
+                    <input name="member" placeholder="Add a user" id="member" type="text" class="card card-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <button type="button" class="btn btn-add" exchange_id="{{member.0.exchange_id}}">Add</button>
+                </div>
+
+                <div class="line"></div>
+                
+                {{#if member.length}}
+                {{#each member}}        
+                <div class="content-card d-flex justify-content-center">
+                    <p class="card">{{user.username}}</p>
+                    <button type="button" class="btn btn-del" exchange_member_id="{{id}}" exchange_id="{{exchange_id}}">Remove</button>
+                </div>
+                {{/each}}
+                {{else}}
+                <p>There are currently no participants in this exchange.</p>
+                {{/if}}
+              
+            </div>		
+        </div>		
+    </div>
+</main>
+
+<script src="/javascripts/member-handlers.js"></script>

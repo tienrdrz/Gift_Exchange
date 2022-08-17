@@ -1,0 +1,19 @@
+<main class="backgroundImg exchangeImg">
+    <div class="content-container">				
+        <div class="exchange">
+            
+            <!-- Exchange Cards -->
+            <div class="content exchanges-card d-flex flex-wrap">
+
+                <h3>Participants of {{title}}</h3>
+
+                {{#each members as |member|}}
+                <div class="content-card d-flex justify-content-center">
+                    <a href="/wishlists/{{member.member_id}}/view-wishlists" class="card">{{user.username}}</a>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>		
+    </div>
+</main>
