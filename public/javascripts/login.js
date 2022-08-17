@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
         console.log(response);
         
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/');
         } else {
             alert('Username and/or password is incorrect');
         }

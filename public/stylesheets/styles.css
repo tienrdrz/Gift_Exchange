@@ -13,6 +13,10 @@
 
 /* GENERAL STYLING ////////////////////////////// */
 
+body {
+	overflow-x: hidden;
+}
+
 a {
 	border-color: transparent;
 	box-sizing: border-box;
@@ -33,9 +37,12 @@ a {
 	border-bottom: #99bdb5 2px solid;
 }
 
-h1:hover {
+h1, h3 {
+	overflow: hidden;	
+}
+
+a:hover {
 	color: var(--primary-color);
-	cursor: pointer;
 }
 
 main {
@@ -171,7 +178,6 @@ footer a:hover {
 }
 
 /* HOME, CONTACT, ABOUT, PRIVACY //////////////// */
-
 .home-text,
 .privacy-text,
 .about-text,
@@ -198,40 +204,15 @@ footer a:hover {
 .about-img img,
 .contact-img img {
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+	left: 	50%;
+	top: 	50%;
+	-webkit-transform: 	translate(-50%, -50%);
+	-ms-transform: 		translate(-50%, -50%);
+	transform: 			translate(-50%, -50%);
 }
 
 img.contained {
 	width: 100%;
-}
-
-/* SIGN UP PAGE ///////////////////////////////// */
-.signupBox {
-	margin: 1rem;
-	padding: 2rem 2rem;
-	background-color: var(--secondary-color);
-	border-radius: 15px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.353);
-	opacity: 0.8;
-	color: #010101;
-	max-width: 600px;
-	max-height: 400px;
-}
-
-#signupBackground {
-	background-image: url("../images/pinkbowlace.jpeg");
-	background-size: cover;
-	background-position: center;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	background-attachment: fixed;
-	background-position: 80%;
 }
 
 /*DASHBOARD PAGE //////////////////////////////// */
@@ -326,11 +307,13 @@ img.contained {
 
 .card-input:hover {
 	background-color: #fff;
+	outline: none;
 }
 
 .card-input:focus {
 	background-color: #fff;
 	outline: none;
+	box-shadow: none;
 }
 
 .content-card {
