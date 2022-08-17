@@ -19,8 +19,12 @@ async function loginFormHandler(event) {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert(response.statusText);
+            alert('Username and/or password is incorrect');
         }
+    }
+    else {
+        alert('Missing username or password');
+        return;
     }
 }
 

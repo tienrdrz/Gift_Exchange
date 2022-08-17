@@ -6,11 +6,38 @@ const User = require('./User.js');
 // Wishlist Model
 class Exchange extends Model {
     static addMember(req) {
-        // Adds a member given their id
-        return ExchangeMember.create({
-            exchange_id: req.params.id,
-            member_id: req.body.user_id,
+        const exchange_id = req.params.id;
+        const member_id = req.body.user_id;
+
+        // console.log(userResponse.params.id);
+        // console.log(userResponse.body.user_id);
+        const chekckIfUserExists = ExchangeMember.findOne({
+            where: {
+                exchange_id: req.params.id,
+                member_id: req.body.user_id
+            }
         });
+
+        return Promise.all([exchange_id, member_id, chekckIfUserExists])
+        .then(values => {
+            const exchange_id = values[0];
+         
+            const member_id = values[1];
+
+            const exists = values[2];
+
+            if (!exists) {
+                console.log('User does not exist');
+                // Adds a member given their id
+                return ExchangeMember.create({
+                    exchange_id: exchange_id,
+                    member_id: member_id,
+                });
+            }
+            else {
+                return false;
+            }
+        });       
     };
 
     // Deletes member given their id
@@ -28,6 +55,16 @@ class Exchange extends Model {
         return Exchange.update({
 
         });
+    }
+
+    // Checks if user is in exchange
+    static checkUser(req) {
+        return ExchangeMember.findOne({
+            where: {
+                exchange_id: req.params.id,
+                member_id: req.body.user_id
+            }
+        })
     }
 };
 

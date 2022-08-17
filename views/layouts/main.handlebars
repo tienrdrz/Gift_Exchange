@@ -31,8 +31,12 @@
 			<div class="row d-flex">
 				<div class="title text-center"><a href="/"><h1>Gift You Up</h1></a></div>
 				<div class="d-flex login-logout-container">
+					{{#if loggedIn }}
+					<div class="logout" id="logout"><a href="/">Logout</a></div>
+					{{else}}
 					<div class="login"><a href="/login">Login</a></div>
 					<div class="signup"><a href="/signup">Sign Up</a></div>
+					{{/if}}
 				</div>
 			</div>
 			<!-- Navigation Bar -->
@@ -58,4 +62,8 @@
 			
 	</body>
 </html>
+
+{{#if loggedIn}}
+<script src="/javascripts/logout.js"></script>
+{{/if}}
 		

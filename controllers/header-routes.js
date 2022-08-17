@@ -4,11 +4,11 @@ const sequelize = require('sequelize');
 const { User, Exchange,  Wishlist, Item, ExchangeMember } = require('../models/');
 
 router.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/dashboard', (req, res) => {
-    res.render('dashboard')
+    res.render('dashboard', { loggedIn: req.session.loggedIn })
 });
 
 router.get('/exchanges', (req, res) => {
@@ -25,7 +25,7 @@ router.get('/exchanges', (req, res) => {
             }
 
             const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
-            res.render('exchanges', { exchanges });
+            res.render('exchanges', { exchanges , loggedIn: true });
         })
         .catch( e => { 
             console.log(e); res.status(500).json(e) 
@@ -49,8 +49,7 @@ router.get('/exchange/:id', (req, res) => {
     })
     .then(memberData => {
         const member = memberData.map(member => member.get({ plain: true }));
-        res.render('exchange', { member });
-        console.log(member);
+        res.render('exchange', { member, loggedIn: req.session.loggedIn });
     })
 })
 
