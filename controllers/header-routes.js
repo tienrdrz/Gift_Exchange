@@ -54,16 +54,26 @@ router.get('/exchange/:id', (req, res) => {
 })
 
 router.get('/wishlists', (req, res) => {   
-    Wishlist.findAll({   
+    if (req.session.user_id){
+      Wishlist.findAll({   
         where: {
             user_id: req.session.user_id
         } 
-    }) 
-    .then(wishlistData => {
+    })   
+        .then(wishlistData => {
+            if(!wishlistData){
+                res.status(404).json({message: 'no wishlist found with this id'});
+            }
         const wishlists = wishlistData.map(wishlist => wishlist.get ({plain: true}));
     res.render('wishlists', { wishlists });
-})    
-
+    })
+    .catch (e=> {
+        console.log(e); res.status(500).json(e)
+    });
+    
+} else {
+    res.redirect('/login');
+}
 });
 
 router.get('/wishlist/:id', (req, res) => {

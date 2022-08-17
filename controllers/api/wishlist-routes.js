@@ -7,12 +7,21 @@ const { Wishlist } = require('../../models');
 // GET /api/wishlist (retrieves ALL the users Wishlists)
 router.get('/', (req, res) => {
     //Access our Wishlist model and run .findAll() method
-    Wishlist.findAll()
-    .then(dbWishlistData => res.json(dbWishlistData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+    Wishlist.findAll({
+        where: {
+            user_id: req.params.user_id
+        },
     })
+    .then(dbWishlistData => res.json(dbWishlistData));
+    res.render('wishlists',{
+    member, 
+    loggedIn: req.session.loggedIn 
+    });
+
+    // .catch(err => {
+    //     console.log(err);
+    //     res.status(500).json(err);
+    // })
 });
 
 // GET /api/wishlist/1 (retrieves 1 wishlist from user)
