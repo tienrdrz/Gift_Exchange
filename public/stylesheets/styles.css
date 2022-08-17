@@ -11,11 +11,6 @@
 	font-family: "Playfair Display", serif;
 }
 
-h1:hover {
-	color: var(--primary-color);
-	cursor: pointer;
-}
-
 /* GENERAL STYLING ////////////////////////////// */
 
 a {

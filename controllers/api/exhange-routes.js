@@ -4,69 +4,21 @@ const authenticated = require('../../utils/authentication');
 
 // Model Imports
 const { Exchange, ExchangeMember } = require('../../models');
+const { route } = require('./wishlist-routes');
 
 // Get all Exchanges tied to the logged in user
-router.get('/', authenticated, (req, res) => {
+router.get('/', (req, res) => {
     Exchange.findAll({
         where: {
             host_id: req.session.user_id
-        }
-    })
-        .then(exchangeData => res.json(exchangeData))
-        .catch( e => { 
-            console.log(e); res.status(500).json(e) 
-        });
-});
-
-// Get an individual Exchange that will include all the exchange_member information
-router.get('/:id', (req, res) => {
-    Exchange.findOne({
-        where: {
-            id: req.params.id
-        },
-        include: {
-            model: ExchangeMember,
-            attributes: ['id', 'member_id', 'list_id', 'gifting_to_id']
-        }
-    })
-        .then(exchangeData => res.json(exchangeData))
-        .catch( e => { 
-            console.log(e); res.status(500).json(e) 
-        });
-});
-
-// Get all Exchanges related to logged in user
-// Can be used to determine editable exchanges
-router.get('/', authenticated, (req, res) => {
-    Exchange.findAll({
-        where: {
-            host_id: req.session.user_id //// TO BE REPLACED WITH SESSION ID ////
         },
         include: [
             { model: ExchangeMember }
         ]
     })
         .then(exchangeData => res.json(exchangeData))
-        .catch(err => {
-            res.status(500).json(err);
-        });
-});
-
-// Get all Exchanges logged in user is participating in
-// Can be used to determine which exchange to update the list_id
-router.get('/part-of', authenticated, (req, res) => {
-    ExchangeMember.findAll({
-        // Find exchanges user is participating in
-        where: {
-            member_id: req.session.user_id //// TO BE REPLACED WITH SESSION ID ////
-        },
-        include: [
-            { model: Exchange }
-        ]
-    })
-        .then(exchangeData => res.json(exchangeData))
-        .catch(err => {
-            res.status(500).json(err);
+        .catch( e => { 
+            console.log(e); res.status(500).json(e) 
         });
 });
 
@@ -117,8 +69,6 @@ router.delete('/:id', (req, res) => {
         })
         .catch(e => { console.log(e); res.status(500).json(e) });
 });
-
-
 
 /////////////////////
 // MEMBER HANDLING //

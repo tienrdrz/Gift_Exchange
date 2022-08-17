@@ -89,6 +89,10 @@ Exchange.init(
               model: 'user',
               key: 'id'
             }
+        },
+        started: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         } 
     },
     // Model Properties

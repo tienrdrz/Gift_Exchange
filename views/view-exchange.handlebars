@@ -1,0 +1,38 @@
+<main class="backgroundImg exchangeImg">
+    <div class="content-container">				
+        <div class="exchange">
+            
+            <!-- Exchange Cards -->
+            <div class="content exchanges-card d-flex flex-wrap">
+                <h3>{{title}}</h3>
+
+                <div>
+                    <div>
+                        <p>
+                            [FOR WHEN EXCHANGE HAS NOT STARTED]</br>
+                            This exchange has not started yet.
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            [FOR WHEN EXCHANGE HAS STARTED]</br>
+                            You drew: [A USER]
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="line"></div>
+
+                <h3>Participants</h3>
+                {{#each members}}
+                <div class="content-card d-flex justify-content-center">
+                    <a href="" class="card">{{user.username}}</a>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>		
+    </div>
+</main>
+
+<script src="/javascripts/exchange-handlers.js"></script>
