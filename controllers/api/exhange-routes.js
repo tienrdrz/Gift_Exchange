@@ -4,6 +4,7 @@ const authenticated = require('../../utils/authentication');
 
 // Model Imports
 const { Exchange, ExchangeMember } = require('../../models');
+const { route } = require('./wishlist-routes');
 
 // Get all Exchanges tied to the logged in user
 router.get('/', (req, res) => {
@@ -68,8 +69,6 @@ router.delete('/:id', (req, res) => {
         })
         .catch(e => { console.log(e); res.status(500).json(e) });
 });
-
-
 
 /////////////////////
 // MEMBER HANDLING //

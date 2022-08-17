@@ -165,16 +165,18 @@ router.put('/exists', (req, res) => {
 // Can be used to determine which exchange to update the list_id
 router.get('/:id/part-of', (req, res) => {
     User.findAll({
-        where: {
-            id: req.session.user_id
+        attributes: {
+            exclude: ['password']
         },
-        // include: [
-        //     { 
-        //         model: Exchange,
-        //         attributes: ['title'],
-        //         through: ExchangeMember
-        //     }
-        // ]
+        where: {
+            id: req.params.id
+        },
+        include: [
+            { 
+                model: Exchange,
+                attributes: ['id', 'title']
+            }
+        ]
     })
         .then(response => {
             return res.json(response)
