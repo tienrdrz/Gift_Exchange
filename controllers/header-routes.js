@@ -25,7 +25,7 @@ router.get('/exchanges', (req, res) => {
             }
 
             const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
-            res.render('exchanges', { exchanges , loggedIn: true });
+            res.render('exchanges', { exchanges , loggedIn: req.session.user_id });
         })
         .catch( e => { 
             console.log(e); res.status(500).json(e) 
@@ -65,7 +65,7 @@ router.get('/wishlists', (req, res) => {
                 res.status(404).json({message: 'no wishlist found with this id'});
             }
         const wishlists = wishlistData.map(wishlist => wishlist.get ({plain: true}));
-    res.render('wishlists', { wishlists });
+    res.render('wishlists', { wishlists, loggedIn: req.session.user_id });
     })
     .catch (e=> {
         console.log(e); res.status(500).json(e)
@@ -90,7 +90,7 @@ router.get('/wishlist/:id', (req, res) => {
     })
     .then(itemData => {    
         const items = itemData.map(item => item.get({ plain: true }));
-        res.render('wishlist', { items });
+        res.render('wishlist', { items, loggedIn: req.session.user_id });
     })
 })
 

@@ -2,7 +2,7 @@
     <div class="content-container">
         <div class="wishlist">
             
-         {{#if loggedIn}}   
+     
             <!-- Wishlist Title -->
             <div class="content wishlists-card">
                 <h3>Create a new Wishlist</h3>
@@ -19,10 +19,9 @@
                     <button type="button" class="btn btn-del" wishlist_id="{{id}}">Delete</button>
                 </div>
                 {{/each}}
-           {{/if}} 
+   
         </div>
     </div>
 </main>
-{{#if}}
+
 <script src="/javascripts/wishlist-handlers.js"></script>
-{{/if}}

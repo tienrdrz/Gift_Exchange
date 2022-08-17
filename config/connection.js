@@ -7,7 +7,9 @@ const sequelize = process.env.JAWSDB_URL
   : new Sequelize(
       'gift_exchange_db', 
       'root', 
-      'Supergeil!016', {
+      'P9A4$1!mGi@A',
+    //   'Supergeil!016', 
+      {
           host: 'localhost',
           dialect: 'mysql',
           port: 3306
