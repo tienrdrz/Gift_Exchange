@@ -116,11 +116,12 @@ footer a:hover {
 }
 
 .exchangeImg {
-	background-image: url("../images/giftExchange.jpeg");
+	background-image: url("../images/giftExchange.png");
 }
 
 .wishlistImg {
-	background-image: url("../images/wishlistimg.jpeg");
+	background-image: url("../images/giftcart.jpeg");
+	background-position-x: 50%;
 }
 
 .aboutUsImg {
