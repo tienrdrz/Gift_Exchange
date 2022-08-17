@@ -71,7 +71,7 @@ router.get('/wishlist/:id', (req, res) => {
             ]
         })
             .then(itemData => {
-                if (!exchangeData) {
+                if (!itemData) {
                     res.status(404).json({ message: 'no item found with current session id' });
                 }
 
