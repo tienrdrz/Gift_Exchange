@@ -33,6 +33,11 @@ a {
 	border-bottom: #99bdb5 2px solid;
 }
 
+h1:hover {
+	color: var(--primary-color);
+	cursor: pointer;
+}
+
 /* HEADER /////////////////////////////////////// */
 /* Title */
 .title {
