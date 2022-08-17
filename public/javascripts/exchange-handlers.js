@@ -12,7 +12,7 @@ async function deleteExchange(event) {
     }
     // Else throw an error
     else {
-        alert('Failed to create a new exchange');
+        alert('Failed to delete a new exchange');
         console.log(deleteExchangeRes.statusText);
     }  
 }
@@ -47,6 +47,6 @@ document.querySelectorAll('.btn-del').forEach(delBtn => {
     delBtn.addEventListener('click', deleteExchange);
 });
 
-// Listener for the creat ebutton
+// Listener for the create button
 document.querySelector('.btn-add').addEventListener('click', addExchange);
 

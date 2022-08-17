@@ -2,6 +2,7 @@
     <div class="content-container">
         <div class="wishlist">
             
+     
             <!-- Wishlist Title -->
             <div class="content wishlists-card">
                 <h3>Create a new Wishlist</h3>
@@ -14,13 +15,13 @@
 
                 {{#each wishlists}}
                 <div class="content-card d-flex justify-content-center">
-                    <a href="....?{{id}}" class="card" wishlist_id="{{id}}">{{title}}</a>
-                    <button type="button" class="btn btn-del">Delete</button>
+                    <a href="wishlist/{{id}}" class="card" >{{title}}</a>
+                    <button type="button" class="btn btn-del" wishlist_id="{{id}}">Delete</button>
                 </div>
                 {{/each}}
-            
+   
         </div>
     </div>
 </main>
 
-<script src="/javascripts/del-wishlist.js"></script>
+<script src="/javascripts/wishlist-handlers.js"></script>

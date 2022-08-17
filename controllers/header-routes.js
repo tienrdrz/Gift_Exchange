@@ -24,12 +24,12 @@ router.get('/exchanges', (req, res) => {
                     res.status(404).json({ message: 'no user found with current session id' });
                 }
 
-                const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
-                res.render('exchanges', { exchanges, loggedIn: true });
-            })
-            .catch(e => {
-                console.log(e); res.status(500).json(e)
-            });
+            const exchanges = exchangeData.map(exchange => exchange.get({ plain: true }));
+            res.render('exchanges', { exchanges , loggedIn: req.session.user_id });
+        })
+        .catch( e => { 
+            console.log(e); res.status(500).json(e) 
+        });
     } else {
         res.redirect('/login');
     }
@@ -53,8 +53,27 @@ router.get('/exchange/:id', (req, res) => {
         })
 })
 
-router.get('/wishlists', (req, res) => {
-    res.render('wishlists')
+router.get('/wishlists', (req, res) => {   
+    if (req.session.user_id){
+      Wishlist.findAll({   
+        where: {
+            user_id: req.session.user_id
+        } 
+    })   
+        .then(wishlistData => {
+            if(!wishlistData){
+                res.status(404).json({message: 'no wishlist found with this id'});
+            }
+        const wishlists = wishlistData.map(wishlist => wishlist.get ({plain: true}));
+    res.render('wishlists', { wishlists, loggedIn: req.session.user_id });
+    })
+    .catch (e=> {
+        console.log(e); res.status(500).json(e)
+    });
+    
+} else {
+    res.redirect('/login');
+}
 });
 
 router.get('/wishlist/:id', (req, res) => {
