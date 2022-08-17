@@ -3,7 +3,7 @@
         <div class="wishlist">
             <!-- Member Cards -->
             <div class="content wishlists-card d-flex flex-wrap">
-                <h3>{{items.0.wishlist.title}}</h3>
+                <h3>{{title}}</h3>
 
                 <!-- Add a Member -->
                 <div class="content-card d-flex justify-content-center">
@@ -14,12 +14,16 @@
 
                 <div class="line"></div>
 
+                {{#if items.length}}
                 {{#each items}}
                 <div class="content-card d-flex justify-content-center">
                     <a href="{{url}}" target="_blank" class="card">{{name}}</a>
                     <button type="button" class="btn btn-del" item_id="{{id}}">Remove</button>
                 </div>
                 {{/each}}
+                {{else}}
+                <p>There are currently no items in this wishlist.</p>
+                {{/if}}
                 
             </div>		
         </div>		

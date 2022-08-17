@@ -1,0 +1,20 @@
+<main class="backgroundImg wishlistImg">
+    <div class="content-container">				
+        <div class="wishlist">
+            <!-- Member Cards -->
+            <div class="content wishlists-card d-flex flex-wrap">
+                <h3>{{title}}</h3>
+
+                <!-- Add a Member -->          
+                {{#each items }}
+                <div class="content-card d-flex justify-content-center">
+                    <a href="{{url}}" target="_blank" class="card">{{name}}</a>
+                </div>
+                {{/each}}
+                
+            </div>		
+        </div>		
+    </div>
+</main>
+
+<script src="/javascripts/item-handlers.js"></script>

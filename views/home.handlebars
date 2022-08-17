@@ -1,3 +1,21 @@
+{{#if loggedIn}}
+<main class="backgroundImg dashboardImg">
+    <div class="content-container text-center">					
+        <div class="content dashboard-card">
+            <a class="textColour" href="/exchanges">
+                <h3 >Your Exchanges</h3>
+                <img class="clickable" src="./images/giftExchanging.jpg" alt="hands exchanging gift">
+            </a>	
+        </div>
+        <div class="content dashboard-card">
+            <a class="textColour" href="/wishlists">
+                <h3>Your Wishlists</h3>
+                <img class="clickable" src="./images/wishlistimg.jpeg" alt="paper and pen making list">
+            </a>	
+        </div>	
+    </div>
+</main>
+{{else}}
 <main class="backgroundImg homeImg">
     <div class="content-container">
         <div class="content home-text">
@@ -19,4 +37,5 @@
             <img src="images/blackgift.jpeg" class="contained" alt="gift with black bow" />
         </div>	
     </div>	
-</main>	
+</main>
+{{/if}}

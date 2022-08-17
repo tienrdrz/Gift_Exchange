@@ -4,12 +4,12 @@
             <!-- Member Cards -->
             <div class="content exchanges-card d-flex flex-wrap">
                 <div class="content-card ">
-                    <h3>Exchange Title</h3>							
+                    <h3>{{title}}</h3>							
                     <!-- Button to lock exchange and shuffle participating users -->
-                    <button type="button" class="btn btn-light start">Start Exchange</button>
+                    {{!-- <button type="button" class="btn btn-light start">Start Exchange</button> --}}
                 </div>
 
-                <div class="line"></div>
+                {{!-- <div class="line"></div> --}}
 
                 <!-- Add a Member -->
                 <div class="content-card d-flex justify-content-center">
@@ -18,13 +18,17 @@
                 </div>
 
                 <div class="line"></div>
-
+                
+                {{#if member.length}}
                 {{#each member}}        
                 <div class="content-card d-flex justify-content-center">
                     <p class="card">{{user.username}}</p>
                     <button type="button" class="btn btn-del" exchange_member_id="{{id}}" exchange_id="{{exchange_id}}">Remove</button>
                 </div>
                 {{/each}}
+                {{else}}
+                <p>There are currently no participants in this exchange.</p>
+                {{/if}}
               
             </div>		
         </div>		

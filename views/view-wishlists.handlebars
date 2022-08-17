@@ -1,0 +1,18 @@
+<main class="backgroundImg wishlistImg">
+    <div class="content-container">
+        <div class="wishlist">
+            
+            <!-- Wishlist Title -->
+            <div class="content wishlists-card d-flex flex-wrap">
+                <h3>{{user}}'s Wishlists</h3>
+              
+                <!-- Wishlist Cards -->
+                {{#each lists}}
+                <div class="content-card d-flex justify-content-center">
+                    <a href="/wishlist/{{id}}/view-wishlist" class="card" >{{title}}</a>
+                </div>
+                {{/each}}
+            
+        </div>
+    </div>
+</main>

@@ -3,34 +3,41 @@
         <div class="exchange">
             
             <!-- Exchange Title -->
-            <div class="content exchanges-card">
-                <h3>Create a new Exchange</h3>
-                <input name="title" placeholder="Exchange Name" id="title" type="text" class="card card-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                <button type="button" class="btn btn-add">Create</button>
-            </div>
-
-            <!-- Exchange Cards -->
             <div class="content exchanges-card d-flex flex-wrap">
-                <h3>Hosted Exchanges</h3>						
-                
+                <h3>Hosted Exchanges</h3>
+                <input name="title" placeholder="New Exchange Name" id="title" type="text" class="card card-input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <button type="button" class="btn btn-add">Create</button>
+            
+                <div class="line"></div>
+
+                {{#if exchanges.length}}
+                <!-- Exchange Cards -->					                
                 {{#each exchanges}}
                 <div class="content-card d-flex justify-content-center">
                     <a href="/exchange/{{id}}" class="card">{{title}}</a>
                     <button type="button" class="btn btn-del" exchange_id="{{id}}">Delete</button>
                 </div>
                 {{/each}}
+                {{else}}
+                <p>You are currently not hosting any exchanges.</p>
+                {{/if}}
+
+              
 
             </div>
 
             <div class="content exchanges-card d-flex flex-wrap"> 
-                <h3>Participating Exchanges</h3>
+                <h3>Upcoming Exchanges</h3>
 
+                {{#if memberOf.length}}
                 {{#each memberOf}}
                 <div class="content-card d-flex justify-content-center">
                     <a href="/exchange/{{id}}/view-exchange" class="card">{{title}}</a>
                 </div>
                 {{/each}}
-
+                {{else}}
+                <p>You are currently not part of any exchanges.</p>
+                {{/if}}           
             </div>
         </div>		
     </div>
