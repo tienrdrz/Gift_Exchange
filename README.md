@@ -15,7 +15,7 @@ Gift You Up is a website that allows users to create a wishlist containing any i
 
 ## Usage
 
-Once an account is created, navigate to the wishlist tab to create your very own wishlist. After creation users can navigate into the wishlist and add an item to it which would include the url to the item and a title for it.
+Once an account is created, navigate to the wishlist tab to create your very own wishlist. After creation users can navigate into the wishlist and add an item to it, which would include the url to the item and a title for it.
 
 An exchange is very similar, users can create an exchange just like they would a wishlist. Navigating to the exchange, users will be prompted to add a user. You can add your friends by just adding their username, and once they are added, you can click on the user and view their wishlists along with their contents. 
 
