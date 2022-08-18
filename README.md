@@ -19,6 +19,7 @@
 - [Screenshots](#screenshots)
 - [Links](#links)
 - [Contributing Users](#Contributing-Users)
+- [Licenses](#licenses)
 
 ## Description
 
@@ -52,3 +53,15 @@ Deployed Website via Heroku: https://secret-anchorage-62343.herokuapp.com/
 - [Etienne Rodriguez](https://github.com/tienrdrz)
 - [Michelle Douma](https://github.com/Amuodmi)
 - [Michael Su](https://github.com/MyCodeSu)
+
+### Licenses
+[![License](https://img.shields.io/badge/License-Express-orange.svg)](https://opensource.org/licenses/Express)
+[![License](https://img.shields.io/badge/License-Sequelize-green.svg)](https://opensource.org/licenses/Sequelize)
+[![License](https://img.shields.io/badge/License-mysql12-blue.svg)](https://opensource.org/licenses/mysql12)
+[![License](https://img.shields.io/badge/License-dotenv-blue.svg)](https://opensource.org/licenses/dotenv)
+[![License](https://img.shields.io/badge/License-bcrypt-red.svg)](https://opensource.org/licenses/bcrypt)
+[![License](https://img.shields.io/badge/License-bluebird-blue.svg)](https://opensource.org/licenses/bluebird)
+[![License](https://img.shields.io/badge/License-nodemon-green.svg)](https://opensource.org/licenses/nodemon)
+[![License](https://img.shields.io/badge/License-express_handlebars-yellow.svg)](https://opensource.org/licenses/express_handlebars)
+[![License](https://img.shields.io/badge/License-express_session-red.svg)](https://opensource.org/licenses/express_session)
+[![License](https://img.shields.io/badge/License-connect_session_sequelize-orange.svg)](https://opensource.org/licenses/connect_session_sequelize)
