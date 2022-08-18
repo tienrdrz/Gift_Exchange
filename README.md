@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/badge/License-bluebird-blue.svg)](https://opensource.org/licenses/bluebird)
 [![License](https://img.shields.io/badge/License-nodemon-green.svg)](https://opensource.org/licenses/nodemon)
 [![License](https://img.shields.io/badge/License-express_handlebars-yellow.svg)](https://opensource.org/licenses/express_handlebars)
-[![License](https://img.shields.io/badge/License-express-session-red.svg)](https://opensource.org/licenses/express-session)
+[![License](https://img.shields.io/badge/License-express_session-red.svg)](https://opensource.org/licenses/express_session)
 [![License](https://img.shields.io/badge/License-connect_session_sequelize-orange.svg)](https://opensource.org/licenses/connect_session_sequelize)
 
 ## Table Of Contents
