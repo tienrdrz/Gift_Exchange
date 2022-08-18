@@ -1,26 +1,55 @@
-# Gift_Exchange
+# Gift You Up
 
-## Getting Setup
+## Table Of Contents
 
-### NPM Setup
+- [Description](#description)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Links](#links)
+- [Contributing Users](#Contributing-Users)
+- [Licenses](#licenses)
 
-Make sure to have the appropriate node packages isntalled:
-- Express
-- Sequelize
-- MySql2
-- dotenv
+## Description
 
-Use the command below to install everything:
+Gift You Up is a website that allows users to create a wishlist containing any items that the user would like to add. Account owners can also create an exchange and add other users to it, once added, everyone in the exchange can view each others wishlists and their respective items.
 
-    npm i express sequelize mysql2 dotenv
+## Usage
 
-### Database Setup
+Once an account is created, navigate to the wishlist tab to create your very own wishlist. After creation users can navigate into the wishlist and add an item to it which would include the url to the item and a title for it.
 
-Make sure your ```root``` folder has an ```.env``` file to access the database.
+An exchange is very similar, users can create an exchange just like they would a wishlist. Navigating to the exchange, users will be prompted to add a user. You can add your friends by just adding their username, and once they are added, you can click on the user and view their wishlists along with their contents. 
 
-Your ```.env``` file should have the following, (changing the ```YOUR_USERNAME```, and ```YOUR_SQL_PASSWORD``` accordingly).
+## Screenshots 
 
-    DB_NAME='gift_exchange_db'
-    DB_USER='YOUR_USERNAME'
-    DB_PASS='YOUR_SQL_PASSWORD'
+Home Page
 
+![image](https://user-images.githubusercontent.com/100370557/185267809-598686ee-f8c2-42f1-b377-a23cad5d238e.png)
+
+Dashboard
+
+![image](https://user-images.githubusercontent.com/100370557/185267725-e01554ca-0ec7-48dd-8fc6-b5c5f8e35228.png)
+
+## Links
+
+GitHub Repo: https://github.com/tienrdrz/Gift_You_Up
+
+Deployed Website via Heroku: https://secret-anchorage-62343.herokuapp.com/
+
+## Contributing Users
+
+- [Joyce Garnett](https://github.com/jcgcristel)
+- [Etienne Rodriguez](https://github.com/tienrdrz)
+- [Michelle Douma](https://github.com/Amuodmi)
+- [Michael Su](https://github.com/MyCodeSu)
+
+### Licenses
+[![License](https://img.shields.io/badge/License-Express-orange.svg)](https://opensource.org/licenses/Express)
+[![License](https://img.shields.io/badge/License-Sequelize-green.svg)](https://opensource.org/licenses/Sequelize)
+[![License](https://img.shields.io/badge/License-mysql12-blue.svg)](https://opensource.org/licenses/mysql12)
+[![License](https://img.shields.io/badge/License-dotenv-blue.svg)](https://opensource.org/licenses/dotenv)
+[![License](https://img.shields.io/badge/License-bcrypt-red.svg)](https://opensource.org/licenses/bcrypt)
+[![License](https://img.shields.io/badge/License-bluebird-blue.svg)](https://opensource.org/licenses/bluebird)
+[![License](https://img.shields.io/badge/License-nodemon-green.svg)](https://opensource.org/licenses/nodemon)
+[![License](https://img.shields.io/badge/License-express_handlebars-yellow.svg)](https://opensource.org/licenses/express_handlebars)
+[![License](https://img.shields.io/badge/License-express_session-red.svg)](https://opensource.org/licenses/express_session)
+[![License](https://img.shields.io/badge/License-connect_session_sequelize-orange.svg)](https://opensource.org/licenses/connect_session_sequelize)
