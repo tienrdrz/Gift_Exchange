@@ -18,7 +18,7 @@
 - [Usage](#usage)
 - [Screenshots](#screenshots)
 - [Links](#links)
-- [Contributing Users](#contributing_users)
+- [Contributing Users](#Contributing Users)
 
 ## Description
 
@@ -48,7 +48,7 @@ Deployed Website via Heroku: https://secret-anchorage-62343.herokuapp.com/
 
 ## Contributing Users
 
-[Joyce Garnett](https://github.com/jcgcristel)
-[Etienne Rodriguez](https://github.com/tienrdrz)
-[Michelle Douma](https://github.com/Amuodmi)
-[Michael Su](https://github.com/MyCodeSu)
+- [Joyce Garnett](https://github.com/jcgcristel)
+- [Etienne Rodriguez](https://github.com/tienrdrz)
+- [Michelle Douma](https://github.com/Amuodmi)
+- [Michael Su](https://github.com/MyCodeSu)
