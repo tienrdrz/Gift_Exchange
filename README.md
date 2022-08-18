@@ -18,7 +18,7 @@
 - [Usage](#usage)
 - [Screenshots](#screenshots)
 - [Links](#links)
-- [Contributing Users](#Contributing Users)
+- [Contributing Users](#Contributing-Users)
 
 ## Description
 
