@@ -16,8 +16,9 @@
 
 - [Description](#description)
 - [Usage](#usage)
-- [Technologies Used](#technologies)
 - [Screenshots](#screenshots)
+- [Links](#links)
+- [Contributing Users](#contributing_users)
 
 ## Description
 
@@ -28,19 +29,6 @@ Gift You Up is a website that allows users to create a wishlist containing any i
 Once an account is created, navigate to the wishlist tab to create your very own wishlist. After creation users can navigate into the wishlist and add an item to it which would include the url to the item and a title for it.
 
 An exchange is very similar, users can create an exchange just like they would a wishlist. Navigating to the exchange, users will be prompted to add a user. You can add your friends by just adding their username, and once they are added, you can click on the user and view their wishlists along with their contents. 
-
-## Technologies Used
-
-- Express
-- Sequelize
-- MySql2
-- dotenv
-- bcrypt
-- bluebird
-- connect-session-sequelize
-- express-handlebars
-- express-session
-- nodemon
 
 ## Screenshots 
 
